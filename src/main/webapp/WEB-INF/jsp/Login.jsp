@@ -1,18 +1,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.ms.ware.online.solution.config.MyContext" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <%
         String path = request.getContextPath();
-        String doc = session.getAttribute("document-path").toString();
+
     %>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Education Management System</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="<%= doc %>Document/Organization/Logo.png"/>
+<%--    <link rel="shortcut icon" type="image/x-icon" href="<%= doc %>Document/Organization/Logo.png"/>--%>
 
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
@@ -60,7 +60,7 @@
                         <p class="tagline">Powered by EduLink</p>
                     </div>
                     <!-- लोगो right side मा -->
-                    <img src="<%=doc%>/Organization/Logo.png"
+                    <img src="<%=path%>/Organization/Logo.png"
                          class="org-logo"
                          alt="Logo"
                          onerror="this.style.display='none';"/>
@@ -112,7 +112,7 @@
     }
     const code = (path.replaceAll("/edulink/", ""));
     const documentPath = localStorage.getItem("document-path");
-    const targetURL = "<%=MyContext.name%>/Login?path=" + code + "&doc=" + documentPath.substring(1, documentPath.length);
+    const targetURL = "<%=path%>/Login?path=" + code + "&doc=" + documentPath.substring(1, documentPath.length);
     document.getElementById("link-a").setAttribute("href", targetURL + "&target=T");
     document.getElementById("link-b").setAttribute("href", targetURL + "&target=S")
     document.getElementById("organization-name").innerHTML = code;
@@ -161,7 +161,7 @@
                     dataType: "json",
                     success: function (data) {
                         window.location.assign(
-                            "<%=MyContext.name%>/organization-login?path=" + path +
+                            "<%=path%>/organization-login?path=" + path +
                             "&token=" + data.token +
                             "&bsdate=" + data.badate +
                             "&fyStart=" + data.fyStart
