@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Motherland-Secondary-Boarding-School</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .id-card {
+            width: 2.125in;
+            height: 3.375in;
+            margin: 20px;
+            padding: 10px;
+            text-align: center;
+            background-color: #f3f3f3;
+            background-image: url('background.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        @media print {
+            @page {
+                size: 2.125in 3.3in;
+                margin: 0;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            .id-card {
+                width: 2.125in;
+                height: 3.3in;
+            }
+        }
+    </style>
+
+</head>
+<body>
+<div id="body" style="margin-left: -20px;margin-top: -20px ">
+
+</div>
+
+<script>
+    const idCardPrintRegNo = localStorage.getItem("idCardPrintRegNo");
+    const tillDate = localStorage.getItem("tillDate");
+    const URL = localStorage.getItem("context-path") + "/api/Student/IDCardPrint/" + idCardPrintRegNo;
+    $.ajax({
+        type: "GET",
+        url: URL,
+        headers: {'Authorization': localStorage.getItem("token")},
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (student) {
+            const regNo = [];
+            let photo;
+            student.forEach((stu) => {
+                photo = stu.photo;
+                if (photo.length > 5) photo = localStorage.getItem('document-path') + photo
+                else photo = "";
+                regNo.push(stu.regNo);
+                $("#body").append(`
+    <div class="id-card">
+        <div style="height: 60px;">
+            <div style=" width: 20%; float: left;height: 60px;">
+
+            </div>
+            <div style="width: 79%; float: right">
+                <b style="color: blue"></b>
+                <div><b style="font-size: 10px;"></div>
+                <div><b style="font-size: 10px;"></div>
+             </div>
+        </div>
+        <div style="clear: both"></div>
+
+        <div style="margin-bottom: 50px;"></div>
+        <div style="clear: both"></div>
+        <div style="height: 60px; margin-left: 1px;">
+            <div style="width: 49%; float: left;height: 60px;">
+                <img src="` + photo + `" height="80" width="80" alt="PHOTO">
+
+            </div>
+            <div style="width: 49%; float: right">
+                <div id="qrcode` + stu.regNo + `" style="padding-left: 1px"></div>
+
+            </div>
+        </div>
+        <div style="clear: both"></div>
+
+        <div style="font-size: 9px;text-align: left;margin-left: 5px; margin-top: 9px;">
+            <div style=" margin-top: 1px;"><b>NAME:<i><u> ` + stu.studentName.toUpperCase() + `</u></i></b></div>
+             <div style=" margin-top: 1px;"><b>FATHER: <i><u>  ` + stu.fathersName.toUpperCase() + `</u></i></b></div>
+             <div style=" margin-top: 1px;"><b>MOBILE No:<i><u> ` + stu.mobileNo.toUpperCase() + `</u></i></b></div>
+             <div style=" margin-top: 1px;"><b>DATE OF BIRTH:<i><u> ` + stu.dob + `</u></i></b></div>
+             <div style=" margin-top: 1px;"><b>CLASS:<i><u> ` + stu.className.toUpperCase() + ` - ` + stu.section.toUpperCase() + `</u></i></b></div>
+             <div style=" margin-top: 1px;"><b>ROLL NO:<i><u> ` + stu.rollNo + `</u></i></b></div>
+             <div style=" margin-top: 1px;"><b>REG NO:<i><u> ` + stu.regNo + `</u></i></b></div>
+             <div style=" margin-top: 1px; color: red"><b>VALID UPTO: <i><u> ` + tillDate + `</u></i></b></div> </div>
+            <div style="clear: both"></div>
+            <div style="clear: both"></div>
+            <div style="clear: both"></div>
+            <div style="clear: both"></div>
+        </div>
+    </div>`)
+
+            });
+            regNo.forEach((stu) => {
+                generateQr("qrcode" + stu, stu);
+            });
+        }
+    });
+
+
+    function generateQr(div, id) {
+        new QRCode(document.getElementById(div), {text: id, height: 80, width: 80});
+    }
+</script>
+
+</body>
+</html>

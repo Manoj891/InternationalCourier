@@ -1,0 +1,1323 @@
+body {
+    padding-top: 70px; /* header अलि अग्लो भएकाले थोरै बढाइयो */
+}
+
+/* main table container */
+#table {
+    overflow: auto;
+    width: auto;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* ===========================
+   FIELDSET / LEGEND
+   =========================== */
+fieldset {
+    margin-bottom: 10px;
+    background-color: white;
+    border: 1px solid #c0c0c0;
+    display: table-cell;
+    padding: 5px 15px 15px !important;
+    box-shadow: 0 0 8px #0a0a0a;
+}
+
+legend {
+    background-color: white;
+    border: none;
+    width: auto;
+    margin-bottom: 0 !important;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 15px;
+    color: #337ab7;
+}
+
+/* ===========================
+   NAVBAR (NEW DESIGN – LIKE HINT PLUS)
+   =========================== */
+
+.caret {
+    margin-left: 2px !important;
+}
+
+/* main top bar + dropdown hover
+   ==> HEADER COLOR = FOOTER COLOR */
+.navbar,
+.navbar-inverse,
+.dropdown-menu > li > a:hover {
+    /* same gradient as footer */
+    background: linear-gradient(90deg, #0f1c2e 0%, #f8e8e8 40%, #6a11cb 100%);
+    border: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+}
+
+/* force inverse nav to use same gradient (override bootstrap) */
+.navbar-inverse {
+    background: linear-gradient(90deg, #0f1c2e 0%, #2575fc 40%, #ffffff 100%) !important;
+    border: none !important;
+}
+
+/* active/open state underline effect */
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:focus,
+.navbar-inverse .navbar-nav > .open > a:hover {
+    color: #fff !important;
+    background: transparent !important;
+    border-bottom: 3px solid rgba(255,255,255,0.9);
+    font-weight: 600 !important;
+}
+
+/* keep collapse height for mobile */
+.navbar-fixed-top .navbar-collapse {
+    max-height: 290px !important;
+}
+
+.required {
+    color: red;
+}
+
+/* hover on top-level menu */
+.dropdown-toggle:hover {
+    border-bottom: 2px solid rgba(255,255,255,0.9);
+    font-weight: 600 !important;
+}
+
+/* brand – left side, bold, bigger */
+.navbar-brand {
+    color: rgba(255,255,255,0.95) !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding: 10px 20px;
+}
+
+/* left side menu line – like 2nd screenshot */
+.navbar-nav {
+    float: left;
+    margin: 0 0 0 10px;
+}
+
+/* right side items (user, logout, etc.) if any */
+.navbar-right {
+    float: right !important;
+}
+
+/* menu links style */
+.navbar-inverse .navbar-nav > li > a {
+    color: rgba(255,255,255,0.9) !important;
+    font-weight: 500 !important;
+    padding: 18px 18px;
+    line-height: 24px;
+}
+
+/* hover / focus of normal menu */
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+    background: transparent;
+    border-bottom: 3px solid rgba(255,255,255,0.85);
+}
+
+/* search icon etc. */
+.btn-search {
+    display: none;
+}
+
+/* ===========================
+   GENERIC ELEMENTS
+   =========================== */
+
+i.fa,
+.glyphicon {
+    padding: 3px;
+}
+
+.dropdown-menu > li > a {
+    padding: 3px 18px 3px 12px !important;
+}
+
+a:hover,
+a:visited,
+a:link {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+.input-group {
+    height: 28px !important;
+    padding: 0px;
+}
+
+.input-group-addon {
+    padding: 0 0 6px;
+    height: 28px;
+}
+
+.log-ot:hover {
+    color: white !important;
+}
+
+.u-logo {
+    padding-left: 3px !important;
+}
+
+/* ===========================
+   FOOTER (MATCH TOP COLOR)
+   =========================== */
+#footer {
+    box-shadow: 0px -8px 10px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(90deg, #0f1c2e 0%, #e9eaed 40%, #baa3d3 100%);
+    height: 40px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-top: 6px;
+    overflow: auto;
+    color: white;
+}
+
+/* ===========================
+   LOGIN PAGE
+   =========================== */
+
+#login-body {
+    background: radial-gradient(circle farthest-corner at 10% 20%, rgba(0, 93, 133, 1) 0%, rgba(0, 181, 149, 1) 90%);
+    margin: 0;
+    padding: 0;
+    background: url("../images/background_login.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    display: block;
+}
+/* ===========================
+   LOGIN CARD – DESKTOP + MOBILE
+   =========================== */
+
+/* Desktop / Default design */
+#logreg-forms {
+    background: transparent;
+    position: relative;
+    box-sizing: border-box;
+    text-align: center;
+    box-shadow: 0 0 10px #0a0a0a;
+
+    /* Desktop layout */
+    width: 960px;                 /* card को design जस्तो */
+    max-width: calc(100% - 80px); /* browser सानो हुँदा किनारामा थोरै gap मात्र */
+    margin: 60px auto;            /* बीचमा center */
+    padding: 40px 40px;
+    border-radius: 20px;
+}
+
+/* Mobile / Tablet (≤ 991px) मा full width */
+@media (max-width: 991px) {
+
+    /* Background full height + center */
+    #login-body {
+        min-height: 100vh;
+        width: 100%;
+        padding: 20px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: cover;
+        background-attachment: scroll;
+    }
+
+    /* Login card full width */
+    #logreg-forms {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 24px 16px;
+        border-radius: 0;               /* चाहे 16px राख्न सक्नुहुन्छ */
+        box-shadow: 0 0 15px rgba(0,0,0,0.18);
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none !important;     /* translate(-50%, -50%) हटाउने मुख्य कुरा */
+    }
+}
+
+#logreg-forms .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 28px;
+    padding: 6px 6px;
+    font-size: 12px;
+    line-height: 1;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+/* ===========================
+   MODAL
+   =========================== */
+
+.modal {
+    margin-top: 65px;
+    margin-bottom: 25px;
+}
+
+#voucherDetail {
+    overflow: auto !important;
+}
+
+.modal-content {
+    padding: 5px;
+    margin-top: 5px !important;
+    position: relative;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 6px;
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+}
+
+.modal-body {
+    position: relative;
+    padding-bottom: 25px !important;
+    padding-top: 5px;
+    overflow: auto;
+}
+
+.moadal-title {
+    font-weight: bold;
+    color: #004080;
+}
+
+.close {
+    color: red;
+    font-weight: bold;
+}
+
+.close:hover {
+    color: red;
+    font-weight: bold;
+}
+
+/* ===========================
+   TABLE / BUTTONS / TEXT
+   =========================== */
+
+.view-d {
+    border-color: transparent;
+    border-radius: 5px;
+    color: white;
+    padding: 3px;
+    background: #004080;
+    width: 30px;
+    text-align: center;
+}
+
+.table.dataTable.no-footer {
+    border-bottom: 1px solid #ddd;
+}
+
+.copy-rec {
+    background-color: white;
+    display: table-cell;
+    box-shadow: 0 0 10px #0a0a0a;
+}
+
+.sub-btn {
+    background-image: linear-gradient(to right, #005C97 0%, #363795 51%, #005C97 100%) !important;
+    color: white;
+    font-weight: bold;
+}
+
+input[type=checkbox],
+input[type=radio] {
+    margin: 0 5px 0 !important;
+}
+
+.dataTables_info {
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.dataTables_length > label {
+    text-transform: capitalize;
+}
+
+.sub-btn:hover {
+    background-position: right center !important;
+    opacity: 0.7;
+    color: white;
+    font-weight: bold;
+}
+
+.head-image {
+    margin-top: 5px;
+    border-radius: 65px;
+    border: solid white;
+    text-align: center;
+    height: 65px;
+    width: 65px;
+}
+
+.mnb {
+    font-size: 14px !important;
+    height: 30px !important;
+    padding: 5px;
+    margin: 0 !important;
+    font-weight: bold !important;
+}
+
+#h2 {
+    color: white;
+    margin: 0;
+    padding: 0 0 10px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.btn {
+    padding: 0 5px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+}
+
+.log-btn {
+    display: inline-block;
+    padding: 15px !important;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.input-icon:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid #5262bc;
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    margin-top: -8px;
+}
+
+.img-adm {
+    height: auto;
+    width: 20px;
+}
+
+.user-detail {
+    padding-top: 5px;
+}
+
+.user-detail p {
+    color: #fff;
+}
+
+.user-detail p span,
+.user-detail p span a {
+    color: #669900;
+}
+
+/* main content – sidebar को दायाँपट्टि मात्रै देखियोस् */
+.wrapper #content-container,
+#content-container {
+    margin-top: 20px;
+    margin-left: 230px;            /* sidebar चौडाइ */
+    width: calc(100% - 230px);     /* बाँकी चौडाइ */
+    box-sizing: border-box;        /* padding जोडिँदा पनि overflow नहोस् */
+}
+
+
+tbody tr td:last-child,
+thead tr th:last-child {
+    text-align: center;
+    width: 100px;
+}
+
+tr {
+    margin-bottom: 10px;
+}
+
+th {
+    padding-bottom: 12px;
+    font-weight: bold;
+    font-size: small;
+    text-align: left;
+    border: none !important;
+    color: black;
+}
+
+td {
+    padding-bottom: 10px;
+    font-weight: normal;
+    text-align: left;
+}
+
+label {
+    font-weight: bold;
+    font-size: 13px;
+    margin: 2px;
+    padding-top: 10px;
+    color: #004080;
+}
+
+.tabel-container p {
+    margin-top: 50px;
+}
+
+.tabel-container {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.btn-info,
+.btn-danger,
+.btn-primary,
+.btn-success {
+    height: 28px;
+}
+
+.pay-box {
+    border-left: 1px dashed gray;
+    padding: 5px 5px 15px !important;
+}
+
+.cbe-d {
+    text-align: center;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.cbe-mt {
+    border: 1px solid white;
+    color: white;
+    background: #116c61;
+    font-weight: bold;
+}
+
+/* ===========================
+   MEDIA QUERIES
+   =========================== */
+
+/* Device width 480px सम्म */
+@media (max-device-width: 480px) {
+    .input-icon:after {
+        top: 28%;
+        transform: translate(0, -50%);
+    }
+
+    .checkbox input[type="checkbox"] {
+        margin-top: -2px;
+    }
+}
+
+/* Device width 767px सम्म */
+@media (max-device-width: 767px) {
+    .logo h1 a img {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .user-detail {
+        text-align: center;
+    }
+
+    .user-detail p {
+        margin-left: 25px;
+        text-align: center;
+    }
+
+    .input-icon::after {
+        top: 75% !important;
+    }
+}
+#footer {
+    box-shadow: 0px -8px 10px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(90deg, #0f1c2e 0%, #2575fc 40%, #6a11cb 100%);
+    height: 40px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-top: 6px;
+    overflow: hidden;   /* scroll bar नआओस् */
+    color: #fff;
+    font-size: 12px;
+}
+
+/* Mobile (Bootstrap width) */
+@media (max-width: 767px) {
+    .navbar-nav .open .dropdown-menu {
+        background-color: rgba(0, 0, 0, 0.25) !important;
+    }
+
+    .btn-search {
+        display: inline-block;
+    }
+
+    .dn {
+        display: none;
+    }
+
+    footer {
+        overflow: auto;
+        height: 25px !important;
+        padding: 3px !important;
+    }
+
+    .col-xs-12 {
+        text-align: center;
+        width: 100% !important;
+    }
+
+    #table {
+        width: 100% !important;
+    }
+
+    .pay-box {
+        border: 1px dashed #102b54 !important;
+        padding-bottom: 10px !important;
+    }
+
+    #logreg-forms .social-login {
+        width: 200px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+
+    #logreg-forms .social-btn {
+        font-size: 1.3rem;
+        font-weight: 100;
+        color: white;
+        width: 200px;
+        height: 56px;
+    }
+
+    #logreg-forms .social-btn:nth-child(1) {
+        margin-bottom: 5px;
+    }
+
+    #logreg-forms .social-btn span {
+        display: none;
+    }
+}
+
+/* ===========================
+   PRINT – Grade Sheet (ONE SHEET = ONE PAGE)
+   =========================== */
+@media print {
+
+    /* पूरा page सफा */
+    html, body {
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+    }
+
+    /* UI / filter / sidebar / footer लुकाउने  */
+    .tohide,
+    .js-print-btn,
+    #footer,
+    .hp-sidebar,
+    .hp-topbar {
+        display: none !important;
+    }
+
+    /* fieldset ले extra border / padding नखाओस् */
+    fieldset {
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+    }
+
+    #studentGrade {
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    /* एक विद्यार्थीको grade sheet = एक A4 page */
+    .bi-d {
+        width: 100% !important;
+        max-width: 760px;                 /* A4 भन्दा अलि सानो */
+        margin: 2mm auto 0 !important;
+        padding: 2mm 3mm !important;
+        box-shadow: none !important;
+        border: 1px solid #1c5dab;
+
+        /* यहीँ main point  */
+        page-break-after: always !important;
+        page-break-inside: avoid !important;
+        break-after: page !important;
+        break-inside: avoid !important;
+    }
+
+    /* भित्रको सबै spacing घटाउने – height कम गर्न */
+    tr {
+        margin: 0 !important;
+    }
+
+    th,
+    td {
+        padding-top: 1px !important;
+        padding-bottom: 1px !important;
+        font-size: 10px !important;
+    }
+
+    .nar-std,
+    .nar-std div,
+    .grade-t td,
+    .grade-t th,
+    .rem-d,
+    .rem-d h5 {
+        font-size: 10px !important;
+    }
+
+    .org-h {
+        margin-bottom: 2mm !important;
+    }
+
+    .foot-d {
+        margin-top: 2mm !important;
+    }
+
+    /* sign row माथिको ठूलो gap हटाउने (inline style override) */
+    .bi-d .row[style*="margin-top: 50px"] {
+        margin-top: 4mm !important;
+    }
+    .bi-d .row[style*="margin-top: 20px"] {
+        margin-top: 2mm !important;
+    }
+
+    /* browser page size */
+    @page {
+        size: A4 portrait;
+        margin: 4mm;
+    }
+}
+
+/* ===========================
+   LEFT SIDEBAR LAYOUT (AUDIT STYLE)
+   =========================== */
+
+body.hp-with-sidebar {
+    padding-top: 0;
+}
+
+/* ==== FIXED LEFT SIDEBAR ==== */
+.hp-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 40px; /* footer height */
+    width: 230px;
+    background: linear-gradient(180deg, #0f1c2e 0%, #2575fc 40%, #6a11cb 100%);
+    color: #fff;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.35);
+    overflow-y: auto;
+    padding-top: 10px;
+    z-index: 900;
+
+    /* slide animation */
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* body मा hp-sidebar-collapsed लागेपछि पूरा sidebar लुक्ने */
+body.hp-sidebar-collapsed .hp-sidebar {
+    transform: translateX(-100%);
+}
+
+/* brand on top of sidebar */
+.hp-sidebar-brand {
+    padding: 4px 16px 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hp-logo-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hp-sidebar-brand a {
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.hp-sidebar-welcome {
+    padding: 4px 16px 10px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    margin-bottom: 6px;
+}
+
+/* accordion groups */
+.hp-sidebar-accordion {
+    padding: 8px 0 40px;
+}
+
+.hp-menu-group {
+    margin-bottom: 4px;
+}
+
+/* main menu title */
+.hp-menu-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 18px;
+    color: rgba(255,255,255,0.9);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.hp-menu-title span i {
+    margin-right: 6px;
+}
+
+.hp-menu-title .hp-arrow {
+    margin-right: 0;
+}
+
+.hp-menu-title:hover,
+.hp-menu-title:focus {
+    text-decoration: none;
+    background: rgba(0,0,0,0.18);
+}
+
+.hp-menu-title.active {
+    background: rgba(0,0,0,0.25);
+}
+
+/* submenu items */
+.hp-submenu {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 4px;
+}
+
+.hp-submenu li a {
+    display: block;
+    padding: 6px 34px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+}
+
+.hp-submenu li a:hover {
+    background: rgba(0,0,0,0.25);
+    text-decoration: none;
+}
+
+/* sidebar footer */
+.hp-sidebar-footer {
+    padding: 8px 16px 10px;
+    background: rgba(0,0,0,0.25);
+    font-size: 12px;
+}
+
+.hp-sidebar-footer a {
+    color: #ffe2e2;
+    font-weight: 600;
+}
+
+/* ==== TOPBAR (HEADER) ==== */
+.hp-topbar {
+    position: fixed;
+    top: 0;
+    left: 230px;      /* sidebar को चौडाइ */
+    right: 0;
+    height: 50px;
+    background: linear-gradient(90deg, #0f1c2e 0%, #2575fc 40%, #6a11cb 100%);
+    color: #ffffff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    z-index: 950;      /* sidebar भन्दा माथि – mobile मा पनि hamburger मा click होस् */
+    transition: left 0.3s ease-in-out;
+}
+
+/* sidebar collapsed हुँदा topbar full width मा सर्छ */
+body.hp-sidebar-collapsed .hp-topbar {
+    left: 0;
+}
+
+/* शीर्षक र icon सेतो देखिने */
+.hp-topbar-title,
+.hp-topbar-left i,
+.hp-topbar-center i {
+    color: #ffffff;
+}
+
+.hp-topbar-left,
+.hp-topbar-center,
+.hp-topbar-right {
+    flex: 1 1 0;
+    display: flex;
+    align-items: center;
+}
+
+/* left side */
+.hp-topbar-left {
+    gap: 8px;
+}
+
+/* search बीचमा */
+.hp-topbar-center {
+    justify-content: center;
+}
+
+/* user menu right side */
+.hp-topbar-right {
+    justify-content: flex-end;
+}
+
+.hp-topbar-title {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* buttons */
+.hp-sidebar-toggle,
+.hp-icon-btn {
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Admin button – topbar gradient सँग मिल्ने pill */
+.hp-user-btn {
+    border-radius: 20px;
+    padding: 4px 14px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.85);
+    color: #ffffff;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* icon + dropdown caret पनि सेतो */
+.hp-user-btn i {
+    font-size: 16px;
+    color: #ffffff;
+}
+.hp-user-btn .caret {
+    border-top-color: #ffffff;
+}
+
+.hp-user-menu .dropdown-menu {
+    min-width: 190px;
+    font-size: 13px;
+}
+
+/* ==== MAIN CONTENT – sidebar को दायाँपट्टि ==== */
+.hp-main {
+    margin-left: 230px;      /* sidebar को width */
+    padding-top: 60px;       /* topbar height */
+    transition: margin-left 0.3s ease-in-out;
+    }
+
+/* sidebar collapsed हुँदा main full width */
+body.hp-sidebar-collapsed .hp-main {
+    margin-left: 0;
+}
+
+/* bootstrap content-container पनि adjust */
+.wrapper #content-container,
+#content-container {
+    margin-top: 20px;
+    margin-left: 230px;
+    width: calc(100% - 230px);
+    box-sizing: border-box;
+    transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+
+body.hp-sidebar-collapsed .wrapper #content-container,
+body.hp-sidebar-collapsed #content-container {
+    margin-left: 0;
+    width: 100%;
+}
+
+/* Login page मा top padding नहोस् */
+body#login-body {
+    padding-top: 0;
+}
+/* ===========================
+   LOGIN PAGE (DESKTOP + MOBILE)
+   =========================== */
+
+/* Login body – background + center */
+#login-body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    background: url("../images/background_login.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+    /* cardलाई बीचमा राख्न */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Login card – desktop default (जस्तै design) */
+#logreg-forms {
+    background: transparent;
+    position: relative;
+    box-sizing: border-box;
+    text-align: center;
+    box-shadow: 0 0 10px #0a0a0a;
+
+    width: 960px;                 /* card को width */
+    max-width: calc(100% - 80px); /* दायाँ–बायाँ 40px ग्याप */
+    margin: 60px auto;
+    padding: 40px 40px;
+    border-radius: 20px;
+}
+
+/* Input fields (पहिले जस्तै) */
+#logreg-forms .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+/* Global .form-control (बाँकी page का लागि) */
+.form-control {
+    display: block;
+    width: 100%;
+    height: 28px;
+    padding: 6px 6px;
+    font-size: 12px;
+    line-height: 1;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+/* Login button */
+.log-btn {
+    display: inline-block;
+    padding: 15px !important;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* ===========================
+   LOGIN – MOBILE / TABLET
+   =========================== */
+@media (max-width: 991px) {
+
+    #login-body {
+        min-height: 100vh;
+        padding: 20px 10px;
+        background-attachment: scroll;   /* mobile मा fixed ले lag नहोस् */
+    }
+
+    #logreg-forms {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 24px 16px;
+        border-radius: 0;                /* चाहियो भने 16px मा change गर्नुहोस् */
+        box-shadow: 0 0 15px rgba(0,0,0,0.18);
+    }
+
+    #logreg-forms .form-control {
+        font-size: 15px;
+    }
+
+    .log-btn {
+        padding: 14px 10px !important;
+        font-size: 15px;
+    }
+}
+
+
+/* ===========================
+   BILL / INVOICE BOX
+   =========================== */
+
+.bi-d {
+    box-shadow: 0 0 8px #1c5dab;
+    width: 720px;
+    border: 1px solid;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.org-h {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px dashed #1c5dab;
+}
+
+/* ===========================
+   GRID FIX (BOOTSTRAP)
+   =========================== */
+
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12,
+.col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5,
+.col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9,
+.col-md-1, .col-md-10, .col-md-11, .col-md-12,
+.col-md-2, .col-md-3, .col-md-4, .col-md-5,
+.col-md-6, .col-md-7, .col-md-8, .col-md-9,
+.col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12,
+.col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5,
+.col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9,
+.col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12,
+.col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5,
+.col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+/* page लाई right-left scroll नआओस् */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* ===== ICON FIX ===== */
+.hp-sidebar i,
+.hp-sidebar .fa,
+.hp-sidebar .glyphicon {
+    display: inline-block !important;
+    font-size: 16px !important;
+    width: 22px;
+    text-align: center;
+    opacity: 1 !important;
+}
+
+/* collapsed हुँदा पनि icon visible */
+body.hp-sidebar-collapsed .hp-sidebar i {
+    display: inline-block !important;
+}
+/* sidebar collapsed = hide text only */
+body.hp-sidebar-collapsed .hp-sidebar {
+    width: 70px !important;
+}
+
+/* text hide */
+body.hp-sidebar-collapsed .hp-sidebar a span,
+body.hp-sidebar-collapsed .hp-menu-title span {
+    display: none !important;
+}
+
+/* icon center */
+body.hp-sidebar-collapsed .hp-sidebar a {
+    text-align: center;
+    padding: 10px 0 !important;
+}
+/* content सही ठाउँमा राख्ने */
+#content-container,
+.hp-main {
+    margin-left: 230px !important;
+    width: calc(100% - 230px) !important;
+    padding: 15px !important;
+}
+
+/* collapse हुँदा */
+body.hp-sidebar-collapsed #content-container,
+body.hp-sidebar-collapsed .hp-main {
+    margin-left: 70px !important;
+    width: calc(100% - 70px) !important;
+}
+
+body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif !important;
+    font-size: 14px;
+    color: #333;
+}
+fieldset {
+    display: block !important;   /* table-cell हटाउने */
+    width: 100%;
+}
+/* ===== TOPBAR FIX ===== */
+.hp-topbar {
+    left: 230px !important;
+    width: calc(100% - 230px) !important;
+}
+
+/* collapse हुँदा */
+body.hp-sidebar-collapsed .hp-topbar {
+    left: 70px !important;
+    width: calc(100% - 70px) !important;
+}
+
+/* ===== MAIN CONTENT FINAL FIX ===== */
+#content-container,
+.hp-main {
+    margin-left: 230px !important;
+    width: calc(100% - 230px) !important;
+    padding: 20px !important;
+}
+
+/* collapse */
+body.hp-sidebar-collapsed #content-container,
+body.hp-sidebar-collapsed .hp-main {
+    margin-left: 70px !important;
+    width: calc(100% - 70px) !important;
+}
+.hp-sidebar {
+    background: linear-gradient(180deg, #1e3c72 0%, #2a5298 50%, #6a11cb 100%) !important;
+}
+.wrapper,
+.container,
+.container-fluid,
+.row {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+body {
+    padding-top: 0 !important; /* 70px हटाउने */
+}
+.hp-main {
+    background: #f4f6f9;
+    min-height: 100vh;
+}
+/* ===== BOOTSTRAP ROW FIX (VERY IMPORTANT) ===== */
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+.container,
+.container-fluid,
+.wrapper {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+}
+#content-container,
+.hp-main {
+    padding: 20px 25px !important;  /* side मा space दिन्छ */
+}
+fieldset {
+    display: block !important;
+    width: 100% !important;
+}
+/* ensure full width rendering */
+#content-container > .row,
+.hp-main > .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.hp-sidebar {
+    width: 22% !important;
+    min-width: 180px; /* mobile मा too small नहोस् */
+}
+#content-container,
+.hp-main {
+    margin-left: 22% !important;
+    width: 80% !important;
+}
+.hp-topbar {
+    left: 22% !important;
+    width: 80% !important;
+}
+body.hp-sidebar-collapsed .hp-sidebar {
+    transform: translateX(-100%);
+}
+
+/* FULL WIDTH */
+body.hp-sidebar-collapsed #content-container,
+body.hp-sidebar-collapsed .hp-main {
+    margin-left: 0 !important;
+    width: 100% !important;
+}
+
+body.hp-sidebar-collapsed .hp-topbar {
+    left: 0 !important;
+    width: 100% !important;
+}

@@ -1,0 +1,11 @@
+package com.ms.ware.online.solution.config.exceptiion;
+
+import lombok.Getter;
+
+
+@Getter
+public class UnauthorizedException extends RuntimeException {
+    public UnauthorizedException() {
+        super("The request has not been applied because it lacks valid authentication credentials.", null, false, false);
+    }
+}

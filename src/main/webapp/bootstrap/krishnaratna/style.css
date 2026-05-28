@@ -1,0 +1,144 @@
+body{
+	background-color: #FFFFFF;
+	font-family: sans-serif;
+	
+}
+.container {
+	border: 0px solid black;
+	border-radius: 5px; 
+	width: 820px;
+	height: 1050px;
+	background-color: white;
+	color: rgb(81, 81, 221);
+}
+
+.container h5{
+	padding-left: 18px;
+	color:#2a688e;
+	line-height:30px;
+}
+.container h5 u{
+	padding-left: 10px;
+	padding-right: 10px;
+	text-decoration: none;
+	border-bottom: 2px dotted;
+	
+}
+.box{
+	border: 3px solid rgb(42, 104, 142);
+	border-radius: 2px; 
+	width: 800px;
+	height: 1030px;
+	background-color: white;
+	color: rgb(81, 81, 221);
+}
+.table{
+	border: 3px solid rgb(198, 197, 215);
+	border-radius: 2px; 
+	width: 760px;
+	background-color: white;
+	color: #0a0a0a;
+	font-family: 'Times New Roman', Times, Serif;
+	font-size: smaller;
+}
+.table td hr{
+	border-color: blue;
+	border: 1px solid rgb(198, 197, 215);
+}
+.table th hr{
+	border-color: blue;
+	border: 1px solid rgb(198, 197, 215);
+}	
+.table hr{
+	margin: 2px;
+}	
+
+
+
+.table1{
+	border: 3px solid rgb(42, 104, 142);
+	border-radius: 2px; 
+	width: 300px;
+	background-color: white;
+	color: rgb(42, 104, 142);
+	font-family: 'Times New Roman', Times, Serif;
+	font-size: 12px;
+}
+.table1 td hr{
+	border-color: blue;
+	border: 1px solid rgb(42, 104, 142);
+}
+.table1 th hr{
+	border-color: blue;
+	border: 1px solid rgb(42, 104, 142);
+}
+.table1 hr{
+	margin: 0;
+}	
+* {
+  box-sizing: border-box;
+}
+
+/* Create two unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+  font-size:14px;
+}
+
+.left {
+  width: 50%;
+  padding-left:0px;
+}
+
+.right {
+  width: 50%;
+  color: rgb(42, 104, 142);
+  text-align:center;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.table2{
+	border: 0px transparent rgb(81, 81, 221);
+	border-color: white;
+	border-radius: 2px; 
+	width: 300px;
+	background-color: white;
+	color: rgb(42, 104, 142);
+	font-family: 'Times New Roman', Times, Serif;
+	font-size: 14px;
+}
+.table2 td hr{
+	border-color: blue;
+	
+	border: 0px solid rgb(81, 81, 221);
+}
+.table2 th hr{
+	border-color: blue;
+	border: 1px solid rgb(81, 81, 221);
+}
+.column1 {
+            float: left;
+            width: 33.33%;
+            padding: 40px;
+            box-sizing: border-box;
+			font-family: 'Times New Roman', Times, Serif;
+			color:#2a688e;
+	font-size: 14px;
+         }
+         .row::after {
+            content: "";
+            clear: both;
+            display: table;
+         }
+hr.new1 {
+  border-top: 1px dotted #2a688e;
+}
+hr.new{
+  border: 1px solid black;
+}

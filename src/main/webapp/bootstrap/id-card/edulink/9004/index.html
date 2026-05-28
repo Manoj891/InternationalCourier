@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ramswarup Ramsagar Multiple Campus</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            .id-card {
+                page-break-after: always;
+                break-after: page;
+                width: 3in;
+                height: 4.5in;
+                border: 2px solid #000;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                background-color: #f3f3f3;
+                background-image: url('Background.png');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                box-sizing: border-box;
+                position: relative;
+                padding-bottom: 30px;
+            }
+
+            @page {
+                size: 3in 4.5in;
+                margin: 0;
+            }
+
+            #printButton {
+                display: none;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .id-card {
+            width: 3in;
+            height: 4.5in;
+            border: 2px solid #000;
+            background-color: #f3f3f3;
+            background-image: url('Background.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            box-sizing: border-box;
+            margin: auto;
+            position: relative;
+            padding-bottom: 30px;
+        }
+.student-id-card-heading{
+    font-size: 14px;
+    width: 100%;
+    height: 22px;
+    background-color: #ff6f4d;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+    text-align: center;
+}
+        .footer-heading {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background-color:  #ff6f4d;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div id="body"></div>
+
+<script>
+    const idCardPrintRegNo = localStorage.getItem("idCardPrintRegNo");
+    const tillDate = localStorage.getItem("tillDate");
+    const path = localStorage.getItem("context-path");
+    const URL = path + "/api/Student/IDCardPrint/" + idCardPrintRegNo;
+
+    $.ajax({
+        type: "GET",
+        url: URL,
+        headers: {'Authorization': localStorage.getItem("token")},
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (student) {
+            const regNo = [];
+            let photo;
+
+            student.forEach((stu) => {
+                photo = stu.photo;
+                if (photo.length > 5) photo = localStorage.getItem('document-path') + photo
+                else photo = "";
+                regNo.push(stu.regNo);
+
+                $("#body").append(`
+                <div class="id-card">
+                    <div style="height: 60px;">
+                        <div style="width: 20%; float: left; height: 60px;"></div>
+                        <div style="width: 79%; float: right;">
+                            <b style="color: blue;"></b>
+                            <div><b style="font-size: 10px;"></b></div>
+                            <div><b style="font-size: 10px;"></b></div>
+                        </div>
+                    </div>
+                    <div style="clear: both;"></div>
+
+                    <div style="margin-top: 70px;">
+                    <div class="student-id-card-heading"><b>STUDENT ID CARD</b></div>
+                        <div style="width: 49%; float: left; height: 60px;">
+                            <img src="` + photo + `" height="80" width="80" alt="PHOTO">
+                        </div>
+                        <div style="width: 49%; float: right; text-align: right;">
+                            <div id="qrcode` + stu.regNo + `"></div>
+                        </div>
+                    </div>
+                    <div style="clear: both;"></div>
+
+                    <div style="font-size: 12px; text-align: left; margin-left: 5px; margin-top: 5px;">
+                        <div><b>NAME<i style="color: blue">:&nbsp;&nbsp;` + stu.studentName.toUpperCase() + `</i></b></div>
+                        <div style="font-size: 10px;"><b>ADD:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="color: blue">` + stu.address.toUpperCase() + `</i></b></div>
+                        <div><b>DOB:&nbsp;&nbsp;&nbsp;&nbsp;<i style="color: blue">` + stu.dob + `</i></b></div>
+                        <div><b>PROG:<i style="color: blue">&nbsp;&nbsp;` + stu.program.toUpperCase() + `</i></b></div>
+                         <div><b>CLASS:<i style="color: blue">` + stu.className.toUpperCase() + `</i></b></div>
+                         <div><b>YEAR:<i style="color: blue">&nbsp;&nbsp;` + stu.admissionYear + `</i></b></div>
+                        <div><b>ROLL:<i style="color: blue">&nbsp;&nbsp;` + stu.rollNo + `</i></b> &nbsp; &nbsp; &nbsp; &nbsp;<b>REG NO: <i style="color: blue">` + stu.regNo + `</i></b></div>
+                        <div><b>SUBJECT:<i style="color: blue">` + stu.subject + `</i></b></div>
+                    </div>
+
+                 <div class="footer-heading">
+                <div style="width: 100%;">
+                   <p style="margin: 0; font-size: 13px;  text-align: center;">VALID UPTO: ` + tillDate + `</p>
+                   <p style="margin: 0; font-size: 10px;">If found, return to the concerned office immediately.</p>
+             </div>
+            </div>
+
+                </div>
+                `);
+            });
+
+            regNo.forEach((stu) => {
+                generateQr("qrcode" + stu, stu);
+            });
+        }
+    });
+
+    function generateQr(div, id) {
+        new QRCode(document.getElementById(div), {
+            text: id,
+            height: 80,
+            width: 90
+        });
+    }
+</script>
+
+</body>
+</html>
