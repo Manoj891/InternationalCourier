@@ -25,18 +25,10 @@ public class WelcomesController {
     }
 
 
-    @RequestMapping(value = "/OrganizationLogin", method = RequestMethod.GET)
-    public String schoolLogin() {
-        return "Login";
-    }
-
-    @RequestMapping(value = "/ForgotPassword", method = RequestMethod.GET)
-    public String forgotPassword() {
-        return "ForgotPassword";
-    }
 
 
-    @RequestMapping(value = "logout", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/web/logout", method = RequestMethod.GET)
     public void logout(HttpSession session, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
@@ -48,8 +40,7 @@ public class WelcomesController {
                 "const path=localStorage.getItem('context-path');" +
                 "const doc=localStorage.getItem('document-path');" +
                 "localStorage.clear();" +
-                "const URL='/ms-ware/Login?path='+path.replace('/edulink/','')+'&doc='+doc.replace('/','');" +
-                "window.location.assign(URL);" +
+                "window.location.assign('/');" +
                 "</script>");
 
     }

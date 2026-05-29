@@ -11,10 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Education Management System</title>
 
-    <!-- Favicon -->
-<%--    <link rel="shortcut icon" type="image/x-icon" href="<%= doc %>Document/Organization/Logo.png"/>--%>
-
-    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -32,14 +28,7 @@
 <body>
 
 <div class="page-wrap">
-    <!-- Student / Teacher toggle -->
-    <div class="login-switch">
-        <b id="organization-code" class="switch-pill active"></b> &nbsp;&nbsp;
-        <a id="link-a" class="switch-pill">Teacher</a>&nbsp;&nbsp;
-        <a id="link-b" class="switch-pill active">&nbsp;&nbsp;Student&nbsp;&nbsp;&nbsp;&nbsp;</a>
-    </div>
 
-    <!-- LOGIN CARD (center) -->
     <div class="login-card">
         <div class="login-inner">
 

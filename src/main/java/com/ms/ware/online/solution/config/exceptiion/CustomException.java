@@ -4,12 +4,25 @@ import lombok.Getter;
 
 @Getter
 public class CustomException extends RuntimeException {
-    private final String message;
-    private final int status;
+    private final ErrorMessage dto = ErrorMessage.builder().build();
 
-    public CustomException(int status, String message) {
+    public CustomException(String message, int code) {
         super(message, null, false, false);
-        this.status = status;
-        this.message = message;
+        dto.setMessage(message);
+        dto.setCode(code);
     }
+
+    public CustomException(String message) {
+        super(message, null, false, false);
+        dto.setMessage(message);
+        dto.setCode(407);
+    }
+
+    public CustomException(String message, String fieldName, Object fieldValue) {
+        super(message, null, false, false);
+        dto.setMessage(message + " not found with " + fieldName + " : " + fieldValue);
+        dto.setCode(408);
+    }
+
+
 }
