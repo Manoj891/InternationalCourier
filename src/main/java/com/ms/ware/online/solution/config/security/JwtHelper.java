@@ -13,7 +13,7 @@ import java.util.Date;
 public class JwtHelper {
     private final String privateKey = "vpqoCz12Tx";
 
-    public String create(String userId, String userName, String userType, String cashAccount, String context, String role) {
+    public String create(String id, String username, String usertype, String branch) {
         String token = "";
         try {
             Date date = new Date();
@@ -21,12 +21,10 @@ public class JwtHelper {
             c.setTime(date);
             c.add(Calendar.DATE, 1);
             token = Jwts.builder().
-                    setId(userId)
-                    .setIssuer(userName)
-                    .setAudience(userType)
-                    .setSubject(cashAccount)
-                    .claim("context", context)
-                    .claim("role", role) // ORG, STU, or TCR
+                    setId(id)
+                    .setIssuer(username)
+                    .setAudience(usertype)
+                    .setSubject(branch)
                     .setIssuedAt(date)
                     .setExpiration(c.getTime())
                     .signWith(SignatureAlgorithm.HS256, privateKey).compact();

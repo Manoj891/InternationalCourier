@@ -20,11 +20,17 @@ public class WelcomesController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index1() {
+    public String login() {
         return "Login";
     }
-
-
+    @RequestMapping(value = "/web/setup", method = RequestMethod.GET)
+    public String setup() {
+        return "login/setup";
+    }
+    @RequestMapping(value = "/web/home", method = RequestMethod.GET)
+    public String home() {
+        return "login/home";
+    }
 
 
 
@@ -37,8 +43,6 @@ public class WelcomesController {
         } catch (Exception ignored) {
         }
         out.println("<script>" +
-                "const path=localStorage.getItem('context-path');" +
-                "const doc=localStorage.getItem('document-path');" +
                 "localStorage.clear();" +
                 "window.location.assign('/');" +
                 "</script>");

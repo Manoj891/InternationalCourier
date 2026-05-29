@@ -1,19 +1,12 @@
 <%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@page import="com.ms.ware.online.solution.config.MyContext" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>EduLink</title>
     <%
         String path = request.getContextPath();
-        String loginDate = "";
-        try {
-            loginDate = session.getAttribute("bsdate").toString();
-            if (loginDate == null || loginDate.length() != 10)
-                out.println("<script>window.location.assign('" + MyContext.name + "/logout');</script>");
-        } catch (Exception e) {
-            out.println("<script>window.location.assign('" + MyContext.name + "/logout');</script>");
-        }
+   
     %>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -67,7 +60,7 @@
         if (!(uri === "/home")) {
             if (!localStorage.getItem("menuUserAccess").includes(uri)) {
                 alert("You don't have access this feature!!");
-                window.location.assign("<%=MyContext.name%>/home");
+                window.location.assign("<%=path%>/home");
             }
         }
     }
@@ -159,7 +152,7 @@
         <div class="hp-logo-circle">
             <i class="fa fa-university"></i>
         </div>
-        <a href="<%=MyContext.name%>/home">
+        <a href="<%=path%>/home">
             <span>EduLink</span>
         </a>
     </div>
@@ -176,23 +169,7 @@
                 <i class="fa fa-chevron-down hp-arrow"></i>
             </a>
             <ul id="menu-setup" class="hp-submenu collapse">
-                <li><a href="<%=MyContext.name%>/Setup/AcademicYear"><i class="fa fa-calendar"></i> Academic Year</a></li>
-                <li><a href="<%=MyContext.name%>/Student/SchoolClassSession"><i class="fas fa-calendar-alt"></i> Education Session</a></li>
-                <li><a href="<%=MyContext.name%>/Account/FiscalYear"><i class="fas fa-calendar-check"></i> Fiscal Year</a></li>
-                <li><a href="<%=MyContext.name%>/Setup/BillMaster"><i class="fas fa-file-invoice-dollar"></i> Bill Master</a></li>
-                <li><a href="<%=MyContext.name%>/Setup/ClassMaster"><i class="fa fa-list-alt"></i> Class Master</a></li>
-                <li><a href="<%=MyContext.name%>/Setup/ProgramMaster"><i class="fa fa-graduation-cap"></i> Program Master</a></li>
-                <li><a href="<%=MyContext.name%>/Setup/Section"><i class="fa fa-graduation-cap"></i> Section Master</a></li>
-                <li><a href="<%=MyContext.name%>/Setup/SubjectMaster"><i class="fa fa-book"></i> Subject Master</a></li>
-                <li><a href="<%=MyContext.name%>/Setup/SubjectGroup"><i class="glyphicon glyphicon-book"></i> Subject Group</a></li>
-                <li><a href="<%=MyContext.name%>/Setup/ReligionMaster"><i class="fas fa-torah"></i> Religion Master</a></li>
-                <li><a href="<%=MyContext.name%>/Setup/CastEthnicityMaster"><i class="fas fa-place-of-worship"></i> Cast Ethnicity</a></li>
-                <li><a href="<%=MyContext.name%>/Setup/HostalTypeMaster"><i class="fas fa-bed"></i> Hostel Type</a></li>
-                <li><a href="<%=MyContext.name%>/Setup/BusMaster"><i class="fas fa-bus-alt"></i> Bus Master</a></li>
-                <li><a href="<%=MyContext.name%>/Setup/BusStationMaster"><i class="fa fa-map-marker"></i> Bus Station</a></li>
-                <li><a href="<%=MyContext.name%>/Setup/BusStationTime"><i class="fas fa-user-clock"></i> Bus Station Time</a></li>
-                <li><a href="<%=MyContext.name%>/Setup/AllowanceMaster"><i class="fab fa-autoprefixer"></i> Allowance Master</a></li>
-            </ul>
+              </ul>
         </div>
 
         <!-- Billing -->
@@ -203,24 +180,7 @@
                 <i class="fa fa-chevron-down hp-arrow"></i>
             </a>
             <ul id="menu-billing" class="hp-submenu collapse">
-                <li><a href="<%=MyContext.name%>/Student/FeeSetup"><i class="fab fa-odnoklassniki-square"></i> Class Fee Assign</a></li>
-                <li><a href="<%=MyContext.name%>/Billing/ClassBillEffect" accesskey="z"><i class="fas fa-clone"></i> Manage Class Fee (z)</a></li>
-                <li><a href="<%=MyContext.name%>/Billing/StuWavFee" accesskey="w"><i class="fa fa-minus-square"></i> Waive Fee (w)</a></li>
-                <li><a href="<%=MyContext.name%>/Billing/PostHostelTransportation"><i class="fa fa-minus-square"></i> Hostel & Transportation</a></li>
-                <li><a href="<%=MyContext.name%>/Billing/ManageCreditBill" accesskey="m"><i class="fas fa-tasks"></i> Manage Bill (m)</a></li>
-                <li><a href="<%=MyContext.name%>/Billing/CreditBill" accesskey="b"><i class="far fa-credit-card"></i> Credit Bill (b)</a></li>
-                <li><a href="<%=MyContext.name%>/Billing/StuBillingMaster" accesskey="c"><i class="fas fa-compress-arrows-alt"></i> Bill Collect (c)</a></li>
-                <li><a href="<%=MyContext.name%>/Billing/OthersBillReceipt"><i class="fas fa-hand-holding-usd"></i> Other Bill Receipt</a></li>
-                <li><a href="<%=MyContext.name%>/Billing/BillCollectReport"><i class="fas fa-search-dollar"></i> Bill Collect Report</a></li>
-                <li><a href="<%=MyContext.name%>/Billing/IndividualFeeReport"><i class="fas fa-people-arrows"></i> Individual Fee Report</a></li>
-                <li><a href="<%=MyContext.name%>/Billing/FeeWiseReport"><i class="fas fa-funnel-dollar"></i> Fee Title Wise Report</a></li>
-                <li><a href="<%=MyContext.name%>/Billing/WavFeeReport"><i class="fas fa-search-minus"></i> Waive Fee Report</a></li>
-                <li><a href="<%=MyContext.name%>/Billing/ClassWiseReport"><i class="fas fa-object-ungroup"></i> Class Wise Report</a></li>
-                <li><a href="<%=MyContext.name%>/Billing/DeletedReport"><i class="fas fa-window-close"></i> Cancel Bill Report</a></li>
-                <li><a href="<%=MyContext.name%>/Billing/WaiveUgcReport"><i class="fas fa-object-ungroup"></i> Waive Ugc Report</a></li>
-                <li><a href="<%=MyContext.name%>/Billing/ReceiptUpload"><i class="fas fa-object-ungroup"></i> Receipt Upload</a></li>
-                <li><a href="<%=MyContext.name%>/Billing/Opening"><i class="fas fa-object-ungroup"></i> Opening Upload</a></li>
-            </ul>
+             </ul>
         </div>
 
         <!-- Student -->
@@ -231,25 +191,6 @@
                 <i class="fa fa-chevron-down hp-arrow"></i>
             </a>
             <ul id="menu-student" class="hp-submenu collapse">
-                <li><a href="<%=MyContext.name%>/Student/Import"><i class="fas fa-calculator"></i> Student Import</a></li>
-                <li><a href="<%=MyContext.name%>/Student/PreAdmission"><i class="fas fa-calculator"></i> Pre Admission</a></li>
-                <li><a href="<%=MyContext.name%>/Student/StudentInfo" accesskey="a"><i class="fas fa-user-graduate"></i> Student Admission (a)</a></li>
-                <li><a href="<%=MyContext.name%>/Student/PreviousEducation" accesskey="e"><i class="fas fa-address-card"></i> Previous Education</a></li>
-                <li><a href="<%=MyContext.name%>/Student/ClassTransfer"><i class="fas fa-exchange-alt"></i> Class Transfer</a></li>
-                <li><a href="<%=MyContext.name%>/Student/ClassUpdate"><i class="fas fa-exchange-alt"></i> Class Update</a></li>
-                <li><a href="<%=MyContext.name%>/Student/class-roll-number-sort"><i class="fas fa-exchange-alt"></i> Class Roll Number Sort</a></li>
-                <li><a href="<%=MyContext.name%>/Student/DateWiseAttendance"><i class="far fa-check-square"></i> Date Wise Attendance</a></li>
-                <li><a href="<%=MyContext.name%>/Student/MonthlyAttendance"><i class="far fa-check-square"></i> Monthly Attendance</a></li>
-                <li><a href="<%=MyContext.name%>/Student/StudentReport"><i class="fas fa-binoculars"></i> Class Wise Report</a></li>
-                <li><a href="<%=MyContext.name%>/Student/GenderWise"><i class="fas fa-venus-mars"></i> Gender/Cast Wise Report</a></li>
-                <li><a href="<%=MyContext.name%>/Student/Transportation"><i class="fa fa-bus"></i> Transportation</a></li>
-                <li><a href="<%=MyContext.name%>/Student/SchoolHostel"><i class="fa fa-building"></i> Student Hostel</a></li>
-                <li><a href="<%=MyContext.name%>/Student/Dropout"><i class="fas fa-user-minus"></i> Drop out</a></li>
-                <li><a href="<%=MyContext.name%>/Student/OnlineAdmissionApprove"><i class="fas fa-globe-americas"></i> Approve Online Admission</a></li>
-                <li><a href="<%=MyContext.name%>/Student/IDCard"><i class="fas fa-id-badge"></i> Print Student ID Card</a></li>
-                <li><a href="<%=MyContext.name%>/Student/certificate"><i class="fas fa-print"></i> Print Certificates</a></li>
-                <li><a href="<%=MyContext.name%>/Student/Import"><i class="far fa-check-square"></i> Student Import</a></li>
-                <li><a href="<%=MyContext.name%>/Utility/BiometricDeviceMap"><i class="far fa-check-square"></i> Biometric Device Map</a></li>
             </ul>
         </div>
 
@@ -261,21 +202,7 @@
                 <i class="fa fa-chevron-down hp-arrow"></i>
             </a>
             <ul id="menu-inventory" class="hp-submenu collapse">
-                <li><a href="<%=MyContext.name%>/Account/ChartOfItem"><i class="fas fa-gopuram"></i> Chart of Item</a></li>
-                <li><a href="<%=MyContext.name%>/Inventory/SundryCreditors"><i class="fas fa-user-secret"></i> Sundry Creditors</a></li>
-                <li><a href="<%=MyContext.name%>/Inventory/PurchaseOrder"><i class="fab fa-first-order"></i> Purchase Order</a></li>
-                <li><a href="<%=MyContext.name%>/Utility/PurchaseOrder"><i class="fas fa-pencil-ruler"></i> Purchase Order Approved</a></li>
-                <li><a href="<%=MyContext.name%>/Inventory/Ledger"><i class="far fa-check-square"></i> Goods Receiving Note</a></li>
-                <li><a href="<%=MyContext.name%>/Inventory/Stock"><i class="fas fa-cart-plus"></i> Current Stock</a></li>
-                <li><a href="<%=MyContext.name%>/Inventory/StudentIssue"><i class="fas fa-id-card"></i> Issue to Student</a></li>
-                <li><a href="<%=MyContext.name%>/Inventory/IssueInDepartment"><i class="fas fa-sitemap"></i> Issue to Department</a></li>
-                <li><a href="<%=MyContext.name%>/Inventory/PurchaseOrderReport"><i class="fas fa-box-open"></i> Purchase Order Report</a></li>
-                <li><a href="<%=MyContext.name%>/Inventory/GoodsReceivedNoteReport"><i class="fas fa-laptop-code"></i> Goods Receiving Note Report</a></li>
-                <li><a href="<%=MyContext.name%>/Inventory/DepartmentWiseReport"><i class="fas fa-laptop-house"></i> Department Wise Report</a></li>
-                <li><a href="<%=MyContext.name%>/Inventory/IssueReport"><i class="fas fa-laptop-house"></i> Issue Report</a></li>
-                <li><a href="<%=MyContext.name%>/Inventory/Opening"><i class="fas fa-envelope-open-text"></i> Add Inventory Opening</a></li>
-                <li><a href="<%=MyContext.name%>/Inventory/OpeningApprove"><i class="fas fa-edit"></i> Approve Opening Inventory</a></li>
-            </ul>
+               </ul>
         </div>
 
         <!-- A/C -->
@@ -286,24 +213,10 @@
                 <i class="fa fa-chevron-down hp-arrow"></i>
             </a>
             <ul id="menu-account" class="hp-submenu collapse">
-                <li><a href="<%=MyContext.name%>/Account/ChartOfAccount"><i class="fas fa-warehouse"></i> Chart of Account</a></li>
-                <li><a href="<%=MyContext.name%>/Account/JournalVoucher"><i class="fas fa-money-bill"></i> Journal Voucher</a></li>
-                <li><a href="<%=MyContext.name%>/Account/ReceiveVoucher"><i class="fas fa-receipt"></i> Receive Voucher</a></li>
-                <li><a href="<%=MyContext.name%>/Account/PaymentVoucher"><i class="far fa-credit-card"></i> Payment Voucher</a></li>
-                <li><a href="<%=MyContext.name%>/Account/BankReconciliation"><i class="fas fa-file-medical-alt"></i> Bank Reconciliation</a></li>
-                <li><a href="<%=MyContext.name%>/Account/PendingVoucher"><i class="fas fa-edit"></i> Approve Pending Voucher</a></li>
-                <li><a href="<%=MyContext.name%>/Account/VoucherEdit"><i class="fas fa-pen-square"></i> Edit Pending Voucher</a></li>
-                <li><a href="<%=MyContext.name%>/Billing/CashBill"><i class="fas fa-hand-holding-usd"></i> Cash Bill Receipt</a></li>
-                <li><a href="<%=MyContext.name%>/Account/DailyTransaction"><i class="far fa-credit-card"></i> Daily Transaction (Day Book)</a></li>
-                <li><a href="<%=MyContext.name%>/Account/AccountLedger"><i class="fas fa-book"></i> Account Ledger</a></li>
-                <li><a href="<%=MyContext.name%>/Account/GroupReport"><i class="fas fa-book"></i> Account Group Report</a></li>
-                <li><a href="<%=MyContext.name%>/Account/ProfitLoss"><i class="fas fa-coins"></i> Profit &amp; Loss</a></li>
-                <li><a href="<%=MyContext.name%>/Account/BalanceSheet"><i class="fas fa-balance-scale"></i> Balance Sheet</a></li>
-                <li><a href="<%=MyContext.name%>/Account/TrailBalance"><i class="fas fa-chart-line"></i> Trial Balance</a></li>
-                <li><a href="<%=MyContext.name%>/Account/BankReconciliationReport"><i class="fas fa-money-check"></i> Bank Reconciliation Report</a></li>
-                <li><a href="<%=MyContext.name%>/Account/OpeningVoucher"><i class="fas fa-money-bill"></i> Opening Voucher</a></li>
-                <li><a href="<%=MyContext.name%>/Account/OpeningAdjustment"><i class="fas fa-money-bill"></i> Opening Adjustment</a></li>
-            </ul>
+                <li><a href="<%=path%>/Account/ChartOfAccount"><i class="fas fa-warehouse"></i> Chart of Account</a></li>
+                <li><a href="<%=path%>/Account/JournalVoucher"><i class="fas fa-money-bill"></i> Journal Voucher</a></li>
+                <li><a href="<%=path%>/Account/ReceiveVoucher"><i class="fas fa-receipt"></i> Receive Voucher</a></li>
+                </ul>
         </div>
 
         <!-- Exam -->
@@ -314,25 +227,25 @@
                 <i class="fa fa-chevron-down hp-arrow"></i>
             </a>
             <ul id="menu-exam" class="hp-submenu collapse">
-                <li><a href="<%=MyContext.name%>/Exam/GradingSystem"><i class="fas fa-ruler-vertical"></i> Grading System</a></li>
-                <li><a href="<%=MyContext.name%>/Exam/PercentageSystem"><i class="fas fa-percentage"></i> Percentage System</a></li>
-                <li><a href="<%=MyContext.name%>/Exam/ExamTerminal"><i class="fas fa-diagnoses"></i> Exam Terminal</a></li>
-                <li><a href="<%=MyContext.name%>/Exam/AddNewExam"><i class="fas fa-brain"></i> Exam Master</a></li>
-                <li><a href="<%=MyContext.name%>/Exam/ExamSchedule"><i class="fas fa-brain"></i> Exam Schedule</a></li>
-                <li><a href="<%=MyContext.name%>/Exam/ExamStudentRegistration"><i class="fas fa-user-tag"></i> Student Registration</a></li>
-                <li><a href="<%=MyContext.name%>/Exam/ExamStudentRegistrationPending"><i class="far fa-calendar-check"></i> Approve Registration</a></li>
-                <li><a href="<%=MyContext.name%>/Exam/EntranceCard"><i class="far fa-calendar-check"></i> Entrance Card</a></li>
-                <li><a href="<%=MyContext.name%>/Exam/MarkEntry"><i class="fas fa-keyboard"></i> Mark Entry</a></li>
-                <li><a href="<%=MyContext.name%>/Exam/MarkApprove"><i class="fas fa-check-square"></i> Approve Mark</a></li>
-                <li><a href="<%=MyContext.name%>/Exam/MarkReport"><i class="far fa-chart-bar"></i> Mark Report</a></li>
-                <li><a href="<%=MyContext.name%>/Exam/GpaWiseReport"><i class="far fa-chart-bar"></i> GPA Wise Report</a></li>
-                <li><a href="<%=MyContext.name%>/Exam/SubjectWiseReport"><i class="far fa-chart-bar"></i> Subject Wise Report</a></li>
-                <li><a href="<%=MyContext.name%>/Exam/StudentAttendance"><i class="far fa-calendar-alt"></i> Student Attendance</a></li>
-                <li><a href="<%=MyContext.name%>/Exam/ExamResultPublish"><i class="fas fa-check-square"></i> Publish Result</a></li>
-                <li><a href="<%=MyContext.name%>/Exam/GradeStatement"><i class="fas fa-thermometer"></i> Grade Statement</a></li>
-                <li><a href="<%=MyContext.name%>/Exam/FinalGradeStatement"><i class="fas fa-thermometer"></i> Final Grade Statement</a></li>
-                <li><a href="<%=MyContext.name%>/Exam/CharacterCertificate"><i class="fas fa-paste"></i> Character Certificate</a></li>
-                <li><a href="<%=MyContext.name%>/Exam/MarkUpdate"><i class="fas fa-paste"></i> Mark Update</a></li>
+                <li><a href="<%=path%>/Exam/GradingSystem"><i class="fas fa-ruler-vertical"></i> Grading System</a></li>
+                <li><a href="<%=path%>/Exam/PercentageSystem"><i class="fas fa-percentage"></i> Percentage System</a></li>
+                <li><a href="<%=path%>/Exam/ExamTerminal"><i class="fas fa-diagnoses"></i> Exam Terminal</a></li>
+                <li><a href="<%=path%>/Exam/AddNewExam"><i class="fas fa-brain"></i> Exam Master</a></li>
+                <li><a href="<%=path%>/Exam/ExamSchedule"><i class="fas fa-brain"></i> Exam Schedule</a></li>
+                <li><a href="<%=path%>/Exam/ExamStudentRegistration"><i class="fas fa-user-tag"></i> Student Registration</a></li>
+                <li><a href="<%=path%>/Exam/ExamStudentRegistrationPending"><i class="far fa-calendar-check"></i> Approve Registration</a></li>
+                <li><a href="<%=path%>/Exam/EntranceCard"><i class="far fa-calendar-check"></i> Entrance Card</a></li>
+                <li><a href="<%=path%>/Exam/MarkEntry"><i class="fas fa-keyboard"></i> Mark Entry</a></li>
+                <li><a href="<%=path%>/Exam/MarkApprove"><i class="fas fa-check-square"></i> Approve Mark</a></li>
+                <li><a href="<%=path%>/Exam/MarkReport"><i class="far fa-chart-bar"></i> Mark Report</a></li>
+                <li><a href="<%=path%>/Exam/GpaWiseReport"><i class="far fa-chart-bar"></i> GPA Wise Report</a></li>
+                <li><a href="<%=path%>/Exam/SubjectWiseReport"><i class="far fa-chart-bar"></i> Subject Wise Report</a></li>
+                <li><a href="<%=path%>/Exam/StudentAttendance"><i class="far fa-calendar-alt"></i> Student Attendance</a></li>
+                <li><a href="<%=path%>/Exam/ExamResultPublish"><i class="fas fa-check-square"></i> Publish Result</a></li>
+                <li><a href="<%=path%>/Exam/GradeStatement"><i class="fas fa-thermometer"></i> Grade Statement</a></li>
+                <li><a href="<%=path%>/Exam/FinalGradeStatement"><i class="fas fa-thermometer"></i> Final Grade Statement</a></li>
+                <li><a href="<%=path%>/Exam/CharacterCertificate"><i class="fas fa-paste"></i> Character Certificate</a></li>
+                <li><a href="<%=path%>/Exam/MarkUpdate"><i class="fas fa-paste"></i> Mark Update</a></li>
             </ul>
         </div>
 
@@ -344,14 +257,14 @@
                 <i class="fa fa-chevron-down hp-arrow"></i>
             </a>
             <ul id="menu-lib" class="hp-submenu collapse">
-                <li><a href="<%=MyContext.name%>/Library/BookType"><i class="fas fa-swatchbook"></i> Book Type</a></li>
-                <li><a href="<%=MyContext.name%>/Library/BookStock"><i class="fab fa-book-dead"></i> Book Entry</a></li>
-                <li><a href="<%=MyContext.name%>/Library/BookCurrentStock"><i class="fab fa-book"></i> Book Current Stock</a></li>
-                <li><a href="<%=MyContext.name%>/Library/BookSearch"><i class="fas fa-book-open"></i> Book Search</a></li>
-                <li><a href="<%=MyContext.name%>/Library/BookReport"><i class="fas fa-book-open"></i> Book Report</a></li>
-                <li><a href="<%=MyContext.name%>/Library/BookIssue"><i class="fas fa-book-reader"></i> Issue Book</a></li>
-                <li><a href="<%=MyContext.name%>/Library/BookReturn"><i class="fas fa-person-booth"></i> Return Book</a></li>
-                <li><a href="<%=MyContext.name%>/Library/BookIssueReport"><i class="fas fa-box-tissue"></i> Issue Report</a></li>
+                <li><a href="<%=path%>/Library/BookType"><i class="fas fa-swatchbook"></i> Book Type</a></li>
+                <li><a href="<%=path%>/Library/BookStock"><i class="fab fa-book-dead"></i> Book Entry</a></li>
+                <li><a href="<%=path%>/Library/BookCurrentStock"><i class="fab fa-book"></i> Book Current Stock</a></li>
+                <li><a href="<%=path%>/Library/BookSearch"><i class="fas fa-book-open"></i> Book Search</a></li>
+                <li><a href="<%=path%>/Library/BookReport"><i class="fas fa-book-open"></i> Book Report</a></li>
+                <li><a href="<%=path%>/Library/BookIssue"><i class="fas fa-book-reader"></i> Issue Book</a></li>
+                <li><a href="<%=path%>/Library/BookReturn"><i class="fas fa-person-booth"></i> Return Book</a></li>
+                <li><a href="<%=path%>/Library/BookIssueReport"><i class="fas fa-box-tissue"></i> Issue Report</a></li>
             </ul>
         </div>
 
@@ -363,23 +276,23 @@
                 <i class="fa fa-chevron-down hp-arrow"></i>
             </a>
             <ul id="menu-emp" class="hp-submenu collapse">
-                <li><a href="<%=MyContext.name%>/Employee/DepartmentMaster"><i class="fas fa-sitemap"></i> Department Master</a></li>
-                <li><a href="<%=MyContext.name%>/Employee/LevelMaster"><i class="fas fa-layer-group"></i> Level Master</a></li>
-                <li><a href="<%=MyContext.name%>/Employee/EmployeeInfo"><i class="fas fa-user-friends"></i> Employee Info</a></li>
-                <li><a href="<%=MyContext.name%>/Employee/IDCard"><i class="far fa-address-card"></i> Employee ID Card</a></li>
-                <li><a href="<%=MyContext.name%>/Employee/OnlineVacancy"><i class="fas fa-blog"></i> Online Vacancy</a></li>
-                <li><a href="<%=MyContext.name%>/Employee/TeachersClassSubject"><i class="fab fa-audible"></i> Subject Class Teacher</a></li>
-                <li><a href="<%=MyContext.name%>/Employee/BiometricDeviceMap"><i class="far fa-check-square"></i> Biometric Device Map</a></li>
-                <li><a href="<%=MyContext.name%>/Employee/EmpWorkingHour"><i class="fas fa-briefcase"></i> Working Hour</a></li>
-                <li><a href="<%=MyContext.name%>/Employee/WdmsAttendance"><i class="fas fa-hdd"></i> Date Wise Attendance</a></li>
-                <li><a href="<%=MyContext.name%>/Employee/AttendanceReport"><i class="fas fa-hdd"></i> Monthly Attendance</a></li>
-                <li><a href="<%=MyContext.name%>/Employee/EmployeeSalaryInfo"><i class="fas fa-comments-dollar"></i> Salary Info</a></li>
-                <li><a href="<%=MyContext.name%>/Employee/TaxSlab"><i class="fas fa-stream"></i> Tax Slab</a></li>
-                <li><a href="<%=MyContext.name%>/Employee/RegularAllowance"><i class="fab fa-asymmetrik"></i> Employee Allowance</a></li>
-                <li><a href="<%=MyContext.name%>/Employee/LeaveApplication"><i class="fas fa-highlighter"></i> Leave Application</a></li>
-                <li><a href="<%=MyContext.name%>/Employee/LeaveReport"><i class="fas fa-paper-plane"></i> Leave Report</a></li>
-                <li><a href="<%=MyContext.name%>/Employee/MonthlySalary"><i class="fas fa-money-check"></i> Monthly Salary</a></li>
-                <li><a href="<%=MyContext.name%>/Employee/SalaryReport"><i class="fas fa-funnel-dollar"></i> Salary Report</a></li>
+                <li><a href="<%=path%>/Employee/DepartmentMaster"><i class="fas fa-sitemap"></i> Department Master</a></li>
+                <li><a href="<%=path%>/Employee/LevelMaster"><i class="fas fa-layer-group"></i> Level Master</a></li>
+                <li><a href="<%=path%>/Employee/EmployeeInfo"><i class="fas fa-user-friends"></i> Employee Info</a></li>
+                <li><a href="<%=path%>/Employee/IDCard"><i class="far fa-address-card"></i> Employee ID Card</a></li>
+                <li><a href="<%=path%>/Employee/OnlineVacancy"><i class="fas fa-blog"></i> Online Vacancy</a></li>
+                <li><a href="<%=path%>/Employee/TeachersClassSubject"><i class="fab fa-audible"></i> Subject Class Teacher</a></li>
+                <li><a href="<%=path%>/Employee/BiometricDeviceMap"><i class="far fa-check-square"></i> Biometric Device Map</a></li>
+                <li><a href="<%=path%>/Employee/EmpWorkingHour"><i class="fas fa-briefcase"></i> Working Hour</a></li>
+                <li><a href="<%=path%>/Employee/WdmsAttendance"><i class="fas fa-hdd"></i> Date Wise Attendance</a></li>
+                <li><a href="<%=path%>/Employee/AttendanceReport"><i class="fas fa-hdd"></i> Monthly Attendance</a></li>
+                <li><a href="<%=path%>/Employee/EmployeeSalaryInfo"><i class="fas fa-comments-dollar"></i> Salary Info</a></li>
+                <li><a href="<%=path%>/Employee/TaxSlab"><i class="fas fa-stream"></i> Tax Slab</a></li>
+                <li><a href="<%=path%>/Employee/RegularAllowance"><i class="fab fa-asymmetrik"></i> Employee Allowance</a></li>
+                <li><a href="<%=path%>/Employee/LeaveApplication"><i class="fas fa-highlighter"></i> Leave Application</a></li>
+                <li><a href="<%=path%>/Employee/LeaveReport"><i class="fas fa-paper-plane"></i> Leave Report</a></li>
+                <li><a href="<%=path%>/Employee/MonthlySalary"><i class="fas fa-money-check"></i> Monthly Salary</a></li>
+                <li><a href="<%=path%>/Employee/SalaryReport"><i class="fas fa-funnel-dollar"></i> Salary Report</a></li>
             </ul>
         </div>
 
@@ -391,22 +304,22 @@
                 <i class="fa fa-chevron-down hp-arrow"></i>
             </a>
             <ul id="menu-utility" class="hp-submenu collapse">
-                <li><a href="<%=MyContext.name%>/Utility/OrganizationMaster"><i class="fa fa-building"></i> Organization Master</a></li>
-                <li><a href="<%=MyContext.name%>/Utility/OrganizationUserInfo"><i class="fa fa-user-plus"></i> Application User</a></li>
-                <li><a href="<%=MyContext.name%>/Utility/OrganizationTeam"><i class="fas fa-user-tie"></i> Organization Team</a></li>
-                <li><a href="<%=MyContext.name%>/Employee/ShareHolder"><i class="fas fa-user-tie"></i> Share Holder</a></li>
-                <li><a href="<%=MyContext.name%>/Utility/AdBsCalender"><i class="fa fa-calendar"></i> Calendar</a></li>
-                <li><a href="<%=MyContext.name%>/Utility/NoticeBoard"><i class="fas fa-chalkboard-teacher"></i> Assign New Notice</a></li>
-                <li><a href="<%=MyContext.name%>/Employee/RoutingReport"><i class="fas fa-calendar-week"></i> Assign Routine</a></li>
-                <li><a href="<%=MyContext.name%>/Utility/ClassWiseSMS"><i class="fas fa-mobile-alt"></i> Send SMS to Student</a></li>
-                <li><a href="<%=MyContext.name%>/Utility/OtherSMS"><i class="fas fa-comments"></i> Send Custom SMS</a></li>
-                <li><a href="<%=MyContext.name%>/Utility/SmsReport"><i class="fas fa-comments"></i> SMS Report</a></li>
-                <li><a href="<%=MyContext.name%>/Utility/MenuControl"><i class="fas fa-gamepad"></i> Menu Control</a></li>
-                <li><a href="<%=MyContext.name%>/Utility/AccountTransfer"><i class="fas fa-database"></i> Account Transfer</a></li>
-                <li><a href="<%=MyContext.name%>/Utility/Backup"><i class="fas fa-database"></i> Backup</a></li>
-                <li><a href="<%=MyContext.name%>/Setup/MunicipalMaster"><i class="fas fa-database"></i> Municipal</a></li>
-                <li><a href="<%=MyContext.name%>/Utility/EmailNotificationService"><i class="fas fa-database"></i> Email Notification Service</a></li>
-                <li><a href="<%=MyContext.name%>/Utility/SenderEmail"><i class="fas fa-database"></i> Email Configuration</a></li>
+                <li><a href="<%=path%>/Utility/OrganizationMaster"><i class="fa fa-building"></i> Organization Master</a></li>
+                <li><a href="<%=path%>/Utility/OrganizationUserInfo"><i class="fa fa-user-plus"></i> Application User</a></li>
+                <li><a href="<%=path%>/Utility/OrganizationTeam"><i class="fas fa-user-tie"></i> Organization Team</a></li>
+                <li><a href="<%=path%>/Employee/ShareHolder"><i class="fas fa-user-tie"></i> Share Holder</a></li>
+                <li><a href="<%=path%>/Utility/AdBsCalender"><i class="fa fa-calendar"></i> Calendar</a></li>
+                <li><a href="<%=path%>/Utility/NoticeBoard"><i class="fas fa-chalkboard-teacher"></i> Assign New Notice</a></li>
+                <li><a href="<%=path%>/Employee/RoutingReport"><i class="fas fa-calendar-week"></i> Assign Routine</a></li>
+                <li><a href="<%=path%>/Utility/ClassWiseSMS"><i class="fas fa-mobile-alt"></i> Send SMS to Student</a></li>
+                <li><a href="<%=path%>/Utility/OtherSMS"><i class="fas fa-comments"></i> Send Custom SMS</a></li>
+                <li><a href="<%=path%>/Utility/SmsReport"><i class="fas fa-comments"></i> SMS Report</a></li>
+                <li><a href="<%=path%>/Utility/MenuControl"><i class="fas fa-gamepad"></i> Menu Control</a></li>
+                <li><a href="<%=path%>/Utility/AccountTransfer"><i class="fas fa-database"></i> Account Transfer</a></li>
+                <li><a href="<%=path%>/Utility/Backup"><i class="fas fa-database"></i> Backup</a></li>
+                <li><a href="<%=path%>/Setup/MunicipalMaster"><i class="fas fa-database"></i> Municipal</a></li>
+                <li><a href="<%=path%>/Utility/EmailNotificationService"><i class="fas fa-database"></i> Email Notification Service</a></li>
+                <li><a href="<%=path%>/Utility/SenderEmail"><i class="fas fa-database"></i> Email Configuration</a></li>
             </ul>
         </div>
 
@@ -446,18 +359,18 @@
                 </li>
                 <li role="separator" class="divider"></li>
                 <li>
-                    <a href="<%= MyContext.name%>/Utility/ChangePassword">
+                    <a href="<%= path%>/Utility/ChangePassword">
                         <i class="fa fa-key"></i> Change Password
                     </a>
                 </li>
                 <li>
-                    <a href="<%= MyContext.name%>/Utility/support">
+                    <a href="<%= path%>/Utility/support">
                         <i class="fa fa-life-ring"></i> Support
                     </a>
                 </li>
                 <li role="separator" class="divider"></li>
                 <li>
-                    <a href="<%= MyContext.name%>/logout" style="color:red;">
+                    <a href="<%= path%>/web/logout" style="color:red;">
                         <i class="fa fa-sign-out"></i> Log Out
                     </a>
                 </li>

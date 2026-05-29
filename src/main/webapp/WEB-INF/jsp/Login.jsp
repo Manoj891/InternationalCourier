@@ -63,7 +63,7 @@
                         <span class="input-label">Username</span>
                         <div class="input-wrapper">
                             <span class="icon-left"><i class="fa fa-user"></i></span>
-                            <input name="username" id="username" type="text"
+                            <input name="username" id="username" type="text" value="ADMIN"
                                    placeholder="Username here"/>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                         <div class="input-wrapper">
                             <span class="icon-left"><i class="fa fa-lock"></i></span>
                             <input name="password" id="password" type="password"
-                                   placeholder="Enter password here"/>
+                                   placeholder="Enter password here" value="IC@ADMIN12"/>
                             <span class="icon-right" id="toggle-password">
                                 <i class="fa fa-eye" aria-hidden="true"></i>
                             </span>
@@ -95,18 +95,8 @@
 
 
 <script>
-    const path = localStorage.getItem("context-path");
-    if (path === null || path.length === 0) {
-        window.location.assign("<%= request.getContextPath() %>/");
-    }
-    const code = (path.replaceAll("/edulink/", ""));
-    const documentPath = localStorage.getItem("document-path");
-    const targetURL = "<%=path%>/Login?path=" + code + "&doc=" + documentPath.substring(1, documentPath.length);
-    document.getElementById("link-a").setAttribute("href", targetURL + "&target=T");
-    document.getElementById("link-b").setAttribute("href", targetURL + "&target=S")
-    document.getElementById("organization-name").innerHTML = code;
-    document.getElementById("organization-code").innerHTML = "Organization";
-    // show / hide password
+
+
     $("#toggle-password").on("click", function () {
         const pwdInput = document.getElementById("password");
         const icon = this.querySelector("i");
@@ -135,37 +125,27 @@
             "<div class='logging-btn'>LOGGING IN&nbsp;&nbsp;<i class='fa fa-spinner fa-spin' style='font-size:16px'></i></div>";
         document.getElementById("login-btn").setAttribute("disabled", "");
 
+
+        const requestData = {"username": username, "password": password};
         $.ajax({
-            type: "GET",
-            url: path + "/public/api/hibernate-util",
+            type: "POST",
+            url: "public/api/login",
+            data: JSON.stringify(requestData),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            success: function () {
-                const requestData = {"username": username, "password": password};
-                $.ajax({
-                    type: "POST",
-                    url: path + "/public/api/login",
-                    data: JSON.stringify(requestData),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function (data) {
-                        window.location.assign(
-                            "<%=path%>/organization-login?path=" + path +
-                            "&token=" + data.token +
-                            "&bsdate=" + data.badate +
-                            "&fyStart=" + data.fyStart
-                        );
-                    },
-                    error: function (XMLHttpRequest) {
-                        console.log(XMLHttpRequest);
-                        message(XMLHttpRequest.responseJSON.message);
-                    }
-                });
+            success: function (data) {
+                window.location.assign("web/setup?token="+data.token);
             },
             error: function (XMLHttpRequest) {
-                message(XMLHttpRequest.responseText);
+                if (XMLHttpRequest.status === 401) {
+                    message("Unauthorized Access");
+                } else {
+                    message(XMLHttpRequest.responseJSON.message);
+                }
             }
         });
+
+
     });
 
     function message(msg) {

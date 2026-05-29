@@ -31,7 +31,6 @@ public class ApplicationUser {
     @Column(name = "branch")
     private Integer branch;
     @Setter(AccessLevel.NONE)
-    @Getter(AccessLevel.NONE)
     @Column(name = "password", updatable = false)
     private String password;
 
