@@ -16,7 +16,6 @@ public class ApplicationUser {
 
     @Id
     private Integer id;
-
     @Column(name = "username", length = 15, unique = true)
     private String username;
 
