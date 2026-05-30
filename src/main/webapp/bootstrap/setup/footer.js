@@ -1,8 +1,3 @@
-
-document.getElementById("fa-institution-name").innerHTML = localStorage.getItem("organization-name");
-document.getElementById("fa-institution-name-tel").innerHTML = "&nbsp;&nbsp; Tel No:" + localStorage.getItem("organization-tel");
-
-
 function callApi(URL, requestData, apiMethod) {
     $('.btn').button('loading');
     $.ajax({

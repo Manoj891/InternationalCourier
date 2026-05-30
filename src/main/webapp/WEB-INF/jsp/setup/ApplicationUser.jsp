@@ -6,15 +6,11 @@
     <form id="dataFrom" onsubmit="return doSave()">
 
         <input type="hidden" name="id" id="id">
-
         <div class="row">
-
             <div class="col-lg-3 col-sm-3 col-md-3 col-xs-6">
                 <label>Username</label>
                 <input type="text" name="username" id="username" class="form-control">
             </div>
-
-
             <div class="col-lg-3 col-sm-3 col-md-3 col-xs-6">
                 <label>Email</label>
                 <input type="email" name="email" id="email" class="form-control">
