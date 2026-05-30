@@ -2,6 +2,7 @@ package com.ms.ware.online.solution.controller;
 
 
 import com.ms.ware.online.solution.entity.ApplicationUser;
+import com.ms.ware.online.solution.res.ApplicationUserRes;
 import com.ms.ware.online.solution.service.ApplicationUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,8 +25,8 @@ public class ApplicationUserController {
     }
 
     @GetMapping
-    public List<ApplicationUser> findAll() {
-        return service.findAll();
+    public ResponseEntity<List<ApplicationUserRes>> findAll() {
+        return ResponseEntity.status(HttpStatus.OK).body(service.findAll());
     }
 
 

@@ -1,9 +1,9 @@
 package com.ms.ware.online.solution.service;
 
 
-import com.ms.ware.online.solution.config.exceptiion.CustomException;
 import com.ms.ware.online.solution.entity.ApplicationUser;
 import com.ms.ware.online.solution.repository.ApplicationUserRepository;
+import com.ms.ware.online.solution.res.ApplicationUserRes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,18 +17,17 @@ public class ApplicationUserServiceImpl implements ApplicationUserService {
 
     @Override
     public void save(ApplicationUser user) {
+        if (user.getId() == null) {
+            user.setId(repository.findNextId());
+        }
         repository.save(user);
     }
 
     @Override
-    public List<ApplicationUser> findAll() {
-        return repository.findAll();
+    public List<ApplicationUserRes> findAll() {
+        return repository.findByBranchIsNotNull();
     }
 
-    @Override
-    public ApplicationUser findById(Integer id) {
-        return repository.findById(id).orElseThrow(() -> new CustomException("Record not found"));
-    }
 
     @Override
     public void deleteById(Integer id) {

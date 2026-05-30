@@ -57,11 +57,9 @@ function getRecord() {
                             <td>${val.usertype || ''}</td>
                             <td>${val.email || ''}</td>
                             <td>${val.mobileNo || ''}</td>
-
                             <td data-branch="${val.branch}">
-                                ${val.branchName || ''}
+                                ${val.bm.name || ''}
                             </td>
-
                             <td>
                                 <a href="#" onclick="edit(${index})">
                                     Edit
@@ -70,7 +68,7 @@ function getRecord() {
 
                             <td>
                                 <a href="#" onclick="recordDelete(${val.id})">
-                                    Delete
+                                    Del
                                 </a>
                             </td>
                         </tr>
@@ -95,9 +93,7 @@ function edit(sn) {
     document.getElementById('usertype').value = row.children[2].innerText;
     document.getElementById('email').value = row.children[3].innerText;
     document.getElementById('mobileNo').value = row.children[4].innerText;
-
-    const branchId = row.children[5].getAttribute("data-branch");
-    document.getElementById('branch').value = branchId;
+    document.getElementById('branch').value = row.children[5].getAttribute("data-branch");
 }
 
 // ================= DELETE =================

@@ -11,6 +11,4 @@ import org.springframework.stereotype.Repository;
 public interface BranchRepository extends JpaRepository<Branch, Integer> {
     @Query(value = "select ifnull(max(id), 0)+1 from branch", nativeQuery = true)
     int findNextId();
-
-
 }

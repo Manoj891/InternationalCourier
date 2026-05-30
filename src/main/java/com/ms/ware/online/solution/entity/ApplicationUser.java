@@ -34,4 +34,10 @@ public class ApplicationUser {
     @Column(name = "password", updatable = false)
     private String password;
 
+    @Setter(lombok.AccessLevel.NONE)
+    @Getter(lombok.AccessLevel.NONE)
+    @JoinColumn(name = "branch", referencedColumnName = "id", insertable = false, updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Branch bm;
+
 }
