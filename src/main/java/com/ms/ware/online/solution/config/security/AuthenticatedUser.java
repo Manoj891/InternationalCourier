@@ -14,6 +14,8 @@ public class AuthenticatedUser {
     private String usertype;
     private String branch;
 
-
+    public int getBranch() {
+        return Integer.parseInt(branch);
+    }
 }
 

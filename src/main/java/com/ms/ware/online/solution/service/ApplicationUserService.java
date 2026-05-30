@@ -15,4 +15,5 @@ public interface ApplicationUserService {
 
     void deleteById(Integer id);
 
+    void resetPassword(Integer id);
 }

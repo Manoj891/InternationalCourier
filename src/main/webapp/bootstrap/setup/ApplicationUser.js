@@ -40,7 +40,7 @@ function getRecord() {
                             <th>Mobile</th>
                             <th>Branch</th>
                             <th>Edit</th>
-                            <th>Delete</th>
+                            <th>Del</th> <th>Reset</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -69,6 +69,10 @@ function getRecord() {
                             <td>
                                 <a href="#" onclick="recordDelete(${val.id})">
                                     Del
+                                </a>
+                            </td>   <td>
+                                <a href="#" onclick="resetPassword(${val.id})">
+                                    Reset
                                 </a>
                             </td>
                         </tr>
@@ -124,5 +128,9 @@ function loadBranch() {
             });
         }
     });
+}
+
+function resetPassword(id) {
+
 }
 
