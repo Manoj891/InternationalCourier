@@ -22,36 +22,6 @@
         </div>
     </div>
 </footer>
-<script>
-    document.getElementById("fa-institution-name").innerHTML = localStorage.getItem("organization-name");
-    document.getElementById("fa-institution-name-tel").innerHTML = "&nbsp;&nbsp; Tel No:" + localStorage.getItem("organization-tel");
-
-
-    function callApi(URL, requestData, apiMethod) {
-        $('.btn').button('loading');
-        $.ajax({
-            type: apiMethod,
-            url: URL,
-            headers: {'Authorization': token},
-            data: JSON.stringify(requestData),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (data) {
-                $('.btn').button('reset');
-                messages("Success");
-                document.getElementById('dataFrom').reset();
-                getRecord();
-            },
-            error: function (XMLHttpRequest) {
-                ajaxException(XMLHttpRequest);
-            }
-        });
-    }
-
-    function ajaxException(XMLHttpRequest) {
-        $('.btn').button('reset');
-        alert(XMLHttpRequest.responseJSON.message);
-    }
-</script>
+<script src="<%=path%>/bootstrap/setup/footer.js" type="text/javascript"></script>
 </body>
 </html>

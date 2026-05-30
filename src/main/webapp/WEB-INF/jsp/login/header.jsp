@@ -38,10 +38,9 @@
     <script src="<%=path%>/bootstrap/js/jquery-3.4.1.min.js" type="text/javascript"></script>
     <script src="<%=path%>/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="<%=path%>/bootstrap/jqueryToast/jquery.toast.min.js" type="text/javascript"></script>
-    <script src="<%=path%>/bootstrap/appheader.js" type="text/javascript"></script>
     <script src="<%=path%>/bootstrap/datatables.js" type="text/javascript"></script>
     <link href="<%=path%>/bootstrap/datatables.css" rel="stylesheet" type="text/css"/>
-    <script src="<%=path%>/bootstrap/js/jswithcss.js" type="text/javascript"></script>
+
 
     <!-- Data table print and export -->
     <script src="<%=path%>/bootstrap/datatable/dataTables.buttons.min.js" type="text/javascript"></script>
@@ -149,6 +148,7 @@
             </a>
             <ul id="menu-setup" class="hp-submenu collapse">
                 <li><a href="<%=path%>/web/setup/branch"><i class="fas fa-warehouse"></i> Branch</a></li>
+                <li><a href="<%=path%>/web/setup/application-user"><i class="fas fa-warehouse"></i> User</a></li>
             </ul>
         </div>
 
