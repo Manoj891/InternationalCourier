@@ -56,28 +56,11 @@
 
     const userType = localStorage.getItem("userType");
     const username = localStorage.getItem("username");
-
-    if (userType !== "ADM") {
-        const uri = (window.location.pathname).replace("/ms-ware", "");
-        if (!(uri === "/home")) {
-            if (!localStorage.getItem("menuUserAccess").includes(uri)) {
-                alert("You don't have access this feature!!");
-                window.location.assign("<%=path%>/home");
-            }
-        }
-    }
-
-    function searchModelBox() {
-        $("#searchModelBox").modal();
-    }
-
-
-    document.addEventListener('DOMContentLoaded', function () {
-        var body = document.body;
-        var sidebar = document.querySelector('.hp-sidebar');
-        var toggle = document.querySelector('.hp-sidebar-toggle');
-
-        function isMobile() {
+   document.addEventListener('DOMContentLoaded', function () {
+       const body = document.body;
+       const sidebar = document.querySelector('.hp-sidebar');
+       const toggle = document.querySelector('.hp-sidebar-toggle');
+       function isMobile() {
             return window.innerWidth <= 991;   // mobile / tab
         }
 
@@ -95,9 +78,8 @@
         }
 
         /* ===== SUB-MENU LINK CLICK => AUTO CLOSE (ONLY) ===== */
-        var submenuLinks = document.querySelectorAll('.hp-sidebar .hp-submenu a');
-
-        submenuLinks.forEach(function (link) {
+       const submenuLinks = document.querySelectorAll('.hp-sidebar .hp-submenu a');
+       submenuLinks.forEach(function (link) {
             link.addEventListener('click', function () {
                 if (isMobile()) {
                     body.classList.add('hp-sidebar-collapsed');
@@ -110,8 +92,8 @@
             if (!isMobile()) return;
             if (!sidebar) return;
 
-            var clickInsideSidebar = sidebar.contains(e.target);
-            var clickOnToggle = toggle && toggle.contains(e.target);
+            const clickInsideSidebar = sidebar.contains(e.target);
+            const clickOnToggle = toggle && toggle.contains(e.target);
 
             if (!clickInsideSidebar && !clickOnToggle) {
                 body.classList.add('hp-sidebar-collapsed');
@@ -234,5 +216,5 @@
     })();
 </script>
 
-<div class="container hp-main" id="container" style="padding-bottom: 200px;width: 85%; overflow:scroll;">
+<div class="container hp-main" id="container" style="overflow:scroll;">
 

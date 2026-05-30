@@ -1,7 +1,6 @@
 <%@include file="../login/header.jsp" %>
-<fieldset style="margin-top: 60px;padding-right: 10px">
+<fieldset style="margin-top: 40px;">
     <legend>Branch</legend>
-
     <form id="dataFrom" onsubmit="return doSave()">
         <div class="row">
             <input type="hidden" name="id" id="id">
@@ -36,6 +35,7 @@
             </div>
         </div>
     </form>
+    <hr>
     <div id="table" style="margin-top: 30px"></div>
 </fieldset>
 <script>
