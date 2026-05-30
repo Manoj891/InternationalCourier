@@ -53,4 +53,5 @@
   <div id="table"></div>
 
 </fieldset>
+<script src="<%=path%>/bootstrap/setup/ApplicationUser.js" type="text/javascript"></script>
 <%@include file="../login/footer.jsp" %>

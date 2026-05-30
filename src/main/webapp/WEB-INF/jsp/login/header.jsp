@@ -25,12 +25,6 @@
     <!-- Font Awesome 4 (पुरानो icon हरुका लागि) -->
     <link href="<%=path%>/bootstrap/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 
-    <!-- Font Awesome 5 (fas, fab, far, fa-file-invoice-dollar जस्ता icon हरुका लागि) -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-          integrity="sha512-dNmKUuVY0NqH8N3as1qLkGouVp21Hb+Jseb3CidRubc4QZAlWTMwVzbtIgbz9hVYBk2Jy5o+1OtS9O35VYfKkg=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"/>
-
     <!-- App CSS -->
     <link href="<%=path%>/bootstrap/style.css" rel="stylesheet" type="text/css"/>
 
