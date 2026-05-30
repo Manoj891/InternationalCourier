@@ -74,19 +74,25 @@
                 }
                 document.getElementById('table').innerHTML = `<table class='table table-bordered table-hover table-striped' id='dataTable'><thead>
 <tr><th hidden></th><th>Name</th><th>Code</th><th>Email</th><th>Contact No</th><th>Address</th><th style="width:50px"></th><th style="width:50px"></th></tr></thead><tbody></tbody></table>`;
-                for (let i = 0; i < data.length; i++) {
-                    $('#dataTable').append(`<tr id='` + i + `'>
-<td hidden>` + data[i].id + `</td>
-<td>` + data[i].name + `</td>
-<td>` + data[i].code + `</td>
-<td>` + data[i].email + `</td>
-<td>` + data[i].contactNo + `</td>
-<td>` + data[i].address + `</td>
+                data.forEach((val, index) => {
+                    console.log(index);
+                    console.log(val);
+
+                    $('#dataTable').append(`<tr id='` + index + `'>
+<td hidden>` + val.id + `</td>
+<td>` + val.name + `</td>
+<td>` + val.code + `</td>
+<td>` + val.email + `</td>
+<td>` + val.contactNo + `</td>
+<td>` + val.address + `</td>
 <td>
-<a title='Edit' onclick='edit(` + (i) + `)' class='glyphicon glyphicon-edit' href='#'>Edit</a>
-</td><td> <a title='Delete' onclick='recordDelete("` + data[i].id + `")' class='glyphicon glyphicon-remove-circle' href='#'>Del</a>
+<a title='Edit' onclick='edit(` + index + `)' class='glyphicon glyphicon-edit' href='#'>Edit</a>
+</td><td> <a title='Delete' onclick='recordDelete("` + val.id + `")' class='glyphicon glyphicon-remove-circle' href='#'>Del</a>
 </td></tr>`);
-                }
+
+                });
+
+               
                 $('#dataTable').DataTable();
             },
             error: function (XMLHttpRequest) {
