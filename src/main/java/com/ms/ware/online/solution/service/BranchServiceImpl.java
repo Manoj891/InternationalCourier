@@ -2,6 +2,7 @@ package com.ms.ware.online.solution.service;
 
 
 import com.ms.ware.online.solution.config.exceptiion.CustomException;
+import com.ms.ware.online.solution.config.exceptiion.PermissionDeniedException;
 import com.ms.ware.online.solution.entity.Branch;
 import com.ms.ware.online.solution.repository.BranchRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,7 @@ public class BranchServiceImpl implements BranchService {
 
     @Override
     public void deleteById(Integer id) {
+        if (id == 1) throw new PermissionDeniedException();
         repository.deleteById(id);
     }
 }
