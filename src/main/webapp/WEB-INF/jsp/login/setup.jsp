@@ -20,7 +20,7 @@
 </head>
 <body>
 <script>
-    localStorage.setItem("token","<%=token%>");
+    localStorage.setItem("IC-TOKEN","<%=token%>");
     window.location.assign("home")
 </script>
 </body>

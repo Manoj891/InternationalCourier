@@ -6,14 +6,17 @@
     <title>EduLink</title>
     <%
         String path = request.getContextPath();
-   
     %>
+    <script>
+        const path = "<%=path%>";
+        const token = "Bearer "+localStorage.getItem("IC-TOKEN");
+    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="index, follow"/>
 
-    <link rel="shortcut icon" type="image/x-icon" href="<%=path%>Document/Organization/Logo.png">
+    <%--    <link rel="shortcut icon" type="image/x-icon" href="<%=path%>Document/Organization/Logo.png">--%>
 
     <!-- Bootstrap + Toast -->
     <link href="<%=path%>/bootstrap/jqueryToast/jquery.toast.min.css" rel="stylesheet" type="text/css"/>
@@ -50,8 +53,7 @@
 
 <body class="hp-with-sidebar">
 <script>
-    const path = localStorage.getItem("context-path");
-    const token = localStorage.getItem("token");
+
     const userType = localStorage.getItem("userType");
     const username = localStorage.getItem("username");
 
@@ -70,60 +72,55 @@
     }
 
 
-        document.addEventListener('DOMContentLoaded', function () {
-        var body    = document.body;
+    document.addEventListener('DOMContentLoaded', function () {
+        var body = document.body;
         var sidebar = document.querySelector('.hp-sidebar');
-        var toggle  = document.querySelector('.hp-sidebar-toggle');
+        var toggle = document.querySelector('.hp-sidebar-toggle');
 
         function isMobile() {
-        return window.innerWidth <= 991;   // mobile / tab
-    }
+            return window.innerWidth <= 991;   // mobile / tab
+        }
 
         /* ===== HAMBURGER TOGGLE ===== */
         if (toggle) {
-        toggle.addEventListener('click', function (e) {
-        e.stopPropagation();
-        body.classList.toggle('hp-sidebar-collapsed');
-    });
-    }
+            toggle.addEventListener('click', function (e) {
+                e.stopPropagation();
+                body.classList.toggle('hp-sidebar-collapsed');
+            });
+        }
 
         /* Mobile मा default = closed */
         if (isMobile()) {
-        body.classList.add('hp-sidebar-collapsed');
-    }
+            body.classList.add('hp-sidebar-collapsed');
+        }
 
         /* ===== SUB-MENU LINK CLICK => AUTO CLOSE (ONLY) ===== */
         var submenuLinks = document.querySelectorAll('.hp-sidebar .hp-submenu a');
 
         submenuLinks.forEach(function (link) {
-        link.addEventListener('click', function () {
-        if (isMobile()) {
-        body.classList.add('hp-sidebar-collapsed');
-    }
-    });
-    });
+            link.addEventListener('click', function () {
+                if (isMobile()) {
+                    body.classList.add('hp-sidebar-collapsed');
+                }
+            });
+        });
 
         /* ===== SIDEBAR बाहिर क्लिक गरे पनि बन्द (mobile) ===== */
         document.addEventListener('click', function (e) {
-        if (!isMobile()) return;
-        if (!sidebar) return;
+            if (!isMobile()) return;
+            if (!sidebar) return;
 
-        var clickInsideSidebar = sidebar.contains(e.target);
-        var clickOnToggle      = toggle && toggle.contains(e.target);
+            var clickInsideSidebar = sidebar.contains(e.target);
+            var clickOnToggle = toggle && toggle.contains(e.target);
 
-        if (!clickInsideSidebar && !clickOnToggle) {
-        body.classList.add('hp-sidebar-collapsed');
-    }
+            if (!clickInsideSidebar && !clickOnToggle) {
+                body.classList.add('hp-sidebar-collapsed');
+            }
+        });
     });
-    });
 
 
-
-
-
-
-
-// sidebar UI behaviours
+    // sidebar UI behaviours
     $(function () {
         // mobile sidebar toggle
         $("#hp-sidebar-toggle").on("click", function () {
@@ -170,9 +167,8 @@
             </a>
             <ul id="menu-setup" class="hp-submenu collapse">
                 <li><a href="<%=path%>/web/setup/branch"><i class="fas fa-warehouse"></i> Branch</a></li>
-              </ul>
+            </ul>
         </div>
-
 
 
     </div>

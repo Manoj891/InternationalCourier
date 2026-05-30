@@ -17,6 +17,9 @@ public class BranchServiceImpl implements BranchService {
 
     @Override
     public void save(Branch user) {
+        if (user.getId() == null) {
+            user.setId(repository.findNextId());
+        }
         repository.save(user);
     }
 
