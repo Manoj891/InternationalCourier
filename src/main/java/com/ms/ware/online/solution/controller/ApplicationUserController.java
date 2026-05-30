@@ -28,6 +28,7 @@ public class ApplicationUserController {
     public ResponseEntity<List<ApplicationUserRes>> findAll() {
         return ResponseEntity.status(HttpStatus.OK).body(service.findAll());
     }
+
     @PatchMapping("/{id}")
     public ResponseEntity<String> resetPassword(@PathVariable Integer id) {
         service.resetPassword(id);

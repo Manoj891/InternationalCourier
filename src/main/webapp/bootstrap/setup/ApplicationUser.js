@@ -132,5 +132,20 @@ function loadBranch() {
 
 function resetPassword(id) {
 
+    const URL = path + "/api/application-user/" + id;
+    $.ajax({
+        type: "PATCH",
+        url: URL,
+        headers: {'Authorization': token},
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            message(data.message);
+        },
+        error: function (err) {
+            ajaxException(err);
+        }
+    });
 }
+
 

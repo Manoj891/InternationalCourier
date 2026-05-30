@@ -21,22 +21,11 @@ function callApi(URL, requestData, apiMethod) {
 
 function ajaxException(XMLHttpRequest) {
     $('.btn').button('reset');
-    alert(XMLHttpRequest.responseJSON.message);
+    errorMSG(XMLHttpRequest.responseJSON.message);
 }
 
 
-function errorStatus(XMLHttpRequest) {
 
-    $('.btn').button('reset');
-    $.toast({
-        heading: "Error",
-        text: XMLHttpRequest.responseText,
-        icon: 'error',
-        loader: true, // Change it to false to disable loader
-        loaderBg: '#FF0000', // To change the background,
-        position: 'mid-center'
-    });
-}
 
 function errorMSG(msg) {
     $('.btn').button('reset');
