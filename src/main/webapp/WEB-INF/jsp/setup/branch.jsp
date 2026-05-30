@@ -1,5 +1,5 @@
 <%@include file="../login/header.jsp" %>
-<fieldset style="margin-top: 100px;padding-right: 50px">
+<fieldset style="margin-top: 60px;padding-right: 10px">
     <legend>Branch</legend>
 
     <form id="dataFrom" onsubmit="return doSave()">
