@@ -585,8 +585,12 @@ label {
 }
 #footer {
     box-shadow: 0px -8px 10px rgba(0, 0, 0, 0.4);
-    background: linear-gradient(90deg, #0f1c2e 0%, #2575fc 40%, #6a11cb 100%);
-    height: 40px;
+    background: linear-gradient(
+            90deg,
+            #0f172a 0%,
+            #2563eb 45%,
+            #7c3aed 100%
+    ) !important;    height: 40px;
     position: fixed;
     left: 0;
     bottom: 0;
@@ -880,7 +884,16 @@ body.hp-sidebar-collapsed .hp-sidebar {
     color: #ffe2e2;
     font-weight: 600;
 }
-
+.hp-menu-title.active,
+.hp-submenu li a.active {
+    background: rgba(255,255,255,0.15);
+    border-left: 4px solid #ffffff;
+}
+.hp-menu-title:hover,
+.hp-submenu li a:hover {
+    background: rgba(255,255,255,0.12);
+    transition: all .25s ease;
+}
 /* ==== TOPBAR (HEADER) ==== */
 .hp-topbar {
     position: fixed;
@@ -888,7 +901,12 @@ body.hp-sidebar-collapsed .hp-sidebar {
     left: 230px;      /* sidebar को चौडाइ */
     right: 0;
     height: 50px;
-    background: linear-gradient(90deg, #0f1c2e 0%, #2575fc 40%, #6a11cb 100%);
+    background: linear-gradient(
+            90deg,
+            #0f172a 0%,
+            #2563eb 45%,
+            #7c3aed 100%
+    ) !important;
     color: #ffffff;
     box-shadow: 0 1px 4px rgba(0,0,0,0.2);
     display: flex;
@@ -1247,7 +1265,12 @@ body.hp-sidebar-collapsed .hp-main {
     width: calc(100% - 70px) !important;
 }
 .hp-sidebar {
-    background: linear-gradient(180deg, #1e3c72 0%, #2a5298 50%, #6a11cb 100%) !important;
+    background: linear-gradient(
+            180deg,
+            #0f172a 0%,
+            #1e40af 45%,
+            #6d28d9 100%
+    ) !important;
 }
 .wrapper,
 .container,
@@ -1261,8 +1284,17 @@ body {
     padding-top: 0 !important; /* 70px हटाउने */
 }
 .hp-main {
-    background: #f4f6f9;
+    background: #f8fafc;
     min-height: 100vh;
+}
+.hp-sidebar-brand {
+    border-bottom: 1px solid rgba(255,255,255,.15);
+    padding-bottom: 12px;
+}
+.hp-user-btn{
+    background: rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.4);
+    color:#fff;
 }
 /* ===== BOOTSTRAP ROW FIX (VERY IMPORTANT) ===== */
 .row {
@@ -1320,4 +1352,234 @@ body.hp-sidebar-collapsed .hp-main {
 body.hp-sidebar-collapsed .hp-topbar {
     left: 0 !important;
     width: 100% !important;
+}
+/* =========================
+   MODERN CONTENT THEME
+   ========================= */
+
+#content-container{
+    background:#f8fafc !important;
+}
+
+fieldset{
+    background:#ffffff !important;
+    border:none !important;
+    border-radius:16px !important;
+    padding:20px !important;
+    box-shadow:0 4px 20px rgba(0,0,0,.08) !important;
+}
+
+legend{
+    color:#2563eb !important;
+    font-size:16px !important;
+    font-weight:700 !important;
+}
+
+label{
+    color:#334155 !important;
+    font-weight:600 !important;
+}
+
+.form-control{
+    height:38px !important;
+    border:1px solid #dbeafe !important;
+    border-radius:10px !important;
+    box-shadow:none !important;
+}
+
+.form-control:focus{
+    border-color:#2563eb !important;
+    box-shadow:0 0 0 3px rgba(37,99,235,.15) !important;
+}
+
+/* Buttons */
+
+.btn-primary,
+.sub-btn{
+    background:#2563eb !important;
+    border:none !important;
+    color:#fff !important;
+    border-radius:10px !important;
+}
+
+.btn-success{
+    background:#16a34a !important;
+    border:none !important;
+}
+
+.btn-danger{
+    background:#dc2626 !important;
+    border:none !important;
+}
+
+.btn-info{
+    background:#0891b2 !important;
+    border:none !important;
+}
+
+.btn{
+    height:38px !important;
+    padding:0 16px !important;
+    font-weight:600 !important;
+}
+
+/* Table */
+
+.table{
+    background:#fff !important;
+    border-radius:12px !important;
+    overflow:hidden;
+}
+
+.table thead th{
+    background:#eff6ff !important;
+    color:#1e293b !important;
+    font-weight:700 !important;
+    border:none !important;
+}
+
+.table tbody tr{
+    border-bottom:1px solid #eef2f7 !important;
+}
+
+.table tbody tr:hover{
+    background:#f8fafc !important;
+}
+
+/* Dashboard Cards */
+
+.copy-rec,
+.bi-d{
+    background:#fff !important;
+    border:none !important;
+    border-radius:16px !important;
+    box-shadow:0 4px 20px rgba(0,0,0,.08) !important;
+}
+/* ===================================================
+   HINT PLUS FINAL THEME OVERRIDE
+   FILE KO LAST MA MATRA HALNE
+   =================================================== */
+
+:root{
+    --hp-dark:#0f172a;
+    --hp-blue:#2563eb;
+    --hp-purple:#7c3aed;
+    --hp-bg:#f8fafc;
+}
+
+/* Sidebar */
+.hp-sidebar{
+    background:linear-gradient(
+            180deg,
+            var(--hp-dark) 0%,
+            var(--hp-blue) 50%,
+            var(--hp-purple) 100%
+    ) !important;
+}
+
+/* Topbar */
+.hp-topbar{
+    background:linear-gradient(
+            90deg,
+            var(--hp-dark) 0%,
+            var(--hp-blue) 50%,
+            var(--hp-purple) 100%
+    ) !important;
+}
+
+/* Footer */
+#footer{
+    background:linear-gradient(
+            90deg,
+            var(--hp-dark) 0%,
+            var(--hp-blue) 50%,
+            var(--hp-purple) 100%
+    ) !important;
+    color:#fff !important;
+}
+
+/* Sidebar Menu */
+.hp-menu-title,
+.hp-submenu li a,
+.hp-sidebar-brand a,
+.hp-sidebar-welcome{
+    color:#fff !important;
+}
+
+.hp-menu-title:hover,
+.hp-submenu li a:hover{
+    background:rgba(255,255,255,.12) !important;
+}
+
+.hp-menu-title.active,
+.hp-submenu li a.active{
+    background:rgba(255,255,255,.18) !important;
+    border-left:4px solid #fff !important;
+}
+
+/* Main Area */
+body,
+.hp-main,
+#content-container{
+    background:#f8fafc !important;
+}
+
+/* Cards */
+fieldset,
+.copy-rec,
+.bi-d{
+    background:#fff !important;
+    border:none !important;
+    border-radius:14px !important;
+    box-shadow:0 4px 20px rgba(0,0,0,.08) !important;
+}
+
+/* Heading */
+legend{
+    color:var(--hp-blue) !important;
+    font-weight:700 !important;
+}
+
+/* Forms */
+.form-control{
+    border:1px solid #dbeafe !important;
+    border-radius:10px !important;
+}
+
+.form-control:focus{
+    border-color:var(--hp-blue) !important;
+    box-shadow:0 0 0 3px rgba(37,99,235,.15) !important;
+}
+
+/* Buttons */
+.btn-primary,
+.sub-btn{
+    background:var(--hp-blue) !important;
+    border:none !important;
+    color:#fff !important;
+}
+
+.btn-success{
+    background:#16a34a !important;
+    border:none !important;
+}
+
+.btn-danger{
+    background:#dc2626 !important;
+    border:none !important;
+}
+
+.btn-info{
+    background:#0891b2 !important;
+    border:none !important;
+}
+
+/* Tables */
+.table thead th{
+    background:#eff6ff !important;
+    color:#1e293b !important;
+}
+
+.table tbody tr:hover{
+    background:#f8fafc !important;
 }
