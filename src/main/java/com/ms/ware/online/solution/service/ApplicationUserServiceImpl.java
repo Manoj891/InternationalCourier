@@ -38,8 +38,9 @@ public class ApplicationUserServiceImpl implements ApplicationUserService {
         }
         repository.saveAndFlush(obj);
         if (password != null) {
-            emailService.sendmail(obj.getEmail(), "Password generated", "Dear " + user.getUsername() + " Your username: " + user.getUsername() + " and password: " + password + " has been created");
-        }
+          EmailService.Res res= emailService.sendmail(obj.getEmail(), "Password generated", "Dear " + user.getUsername() + " Your username: " + user.getUsername() + " and password: " + password + " has been created");
+            System.out.println(res.getMessage());
+       }
     }
 
     @Override
