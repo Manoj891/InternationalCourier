@@ -36,7 +36,7 @@ public class BikramSambatConverter {
                 } else {
                     bsMonth = 1;
                     bsYear++;
-                    if (!calendar.isSupportedYear(bsYear)) {
+                    if (calendar.isSupportedYear(bsYear)) {
                         throw new IllegalArgumentException("Date exceeds supported BS calendar range.");
                     }
                 }
@@ -49,7 +49,7 @@ public class BikramSambatConverter {
     }
 
     public LocalDate convertBsToAd(int bsYear, int bsMonth, int bsDay) {
-        if (!calendar.isSupportedYear(bsYear)) {
+        if (calendar.isSupportedYear(bsYear)) {
             throw new IllegalArgumentException("Unsupported BS year: " + bsYear);
         }
 

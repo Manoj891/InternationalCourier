@@ -123,7 +123,7 @@ public class BikramSambatCalendar {
 
     public boolean isSupportedYear(int bsYear) {
         int index = bsYear - START_YEAR;
-        return index >= 0 && index < yearMonthDays.size();
+        return index < 0 || index >= yearMonthDays.size();
     }
 
 }
