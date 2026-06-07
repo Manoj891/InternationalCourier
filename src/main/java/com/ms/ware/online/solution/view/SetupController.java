@@ -6,6 +6,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class SetupController {
+    @RequestMapping(value = "/web/setup/country", method = RequestMethod.GET)
+    public String country() {
+        return "setup/country";
+    }
+
     @RequestMapping(value = "/web/setup/branch", method = RequestMethod.GET)
     public String branch() {
         return "setup/branch";

@@ -31,7 +31,6 @@ public class Booking {
 
 
     @Column(name = "book_type", length = 10, updatable = false)
-    @Enumerated(EnumType.STRING)
     private String bookType;
 
 

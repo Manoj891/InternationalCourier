@@ -141,8 +141,9 @@
                 <i class="fa fa-chevron-down hp-arrow"></i>
             </a>
             <ul id="menu-setup" class="hp-submenu collapse">
-                <li><a href="<%=path%>/web/setup/branch"><i class="fas fa-warehouse"></i> Branch</a></li>
                 <li><a href="<%=path%>/web/setup/application-user"><i class="fas fa-warehouse"></i> User</a></li>
+                <li><a href="<%=path%>/web/setup/branch"><i class="fas fa-warehouse"></i> Branch</a></li>
+                <li><a href="<%=path%>/web/setup/country"><i class="fas fa-warehouse"></i> Country</a></li>
             </ul>
         </div>
 
