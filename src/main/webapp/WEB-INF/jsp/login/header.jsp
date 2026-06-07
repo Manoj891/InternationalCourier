@@ -144,7 +144,10 @@
                 <li><a href="<%=path%>/web/setup/application-user"><i class="fas fa-warehouse"></i> User</a></li>
                 <li><a href="<%=path%>/web/setup/branch"><i class="fas fa-warehouse"></i> Branch</a></li>
                 <li><a href="<%=path%>/web/setup/country"><i class="fas fa-warehouse"></i> Country</a></li>
+                <li><a href="<%=path%>/web/booking/booking"><i class="fas fa-warehouse"></i> Booking</a></li>
             </ul>
+
+
         </div>
 
 
@@ -211,5 +214,5 @@
     })();
 </script>
 
-<div class="container hp-main" id="container" style="overflow:scroll;">
+<div class="container hp-main" id="container" style="overflow:scroll; ">
 

@@ -20,5 +20,8 @@ public class SetupController {
     public String ApplicationUser() {
         return "setup/ApplicationUser";
     }
-
+    @RequestMapping(value = "/web/booking/booking", method = RequestMethod.GET)
+    public String booking() {
+        return "booking/booking";
+    }
 }
